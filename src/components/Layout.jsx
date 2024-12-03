@@ -7,10 +7,10 @@ const Layout = () => {
   return (
     <div className='h-screen flex flex-col'>
         <Navbar/>
-        <main className='flex flex-grow'>
+        <main className='flex flex-grow flex-col overflow-y-auto'>
             <Outlet/>
+            <Footer/>
         </main>
-        <Footer/>
     </div>
   )
 }
