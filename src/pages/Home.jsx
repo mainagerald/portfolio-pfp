@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import myAvatar from '../assets/avataaars.svg'
 import ProfessionalIdentity from '../components/ProfesionalIdentity';
 
 const Home = () => {
@@ -58,18 +57,29 @@ const Home = () => {
     <div className="fade-in w-full flex flex-col">
       <div className='fade-in flex items-center justify-center mt-3'>
         <div className='p-2 rounded-full flex flex-row items-center bg-white shadow-md'>
-          <p className='font-lato text-lg italic'>Salutations, the name's Maina. Flavian Maina.</p>
+          <p className='font-lato text-lg italic p-2'>Salutations, the name's Maina. Flavian Maina.</p>
         </div>
       </div>
       <div className='p-3'>
         <ProfessionalIdentity />
       </div>
-      <div className='fade-in p-5 mt-4 mr-2 ml-2 rounded-lg flex flex-col items-center justify-center'>
-        <h1 className='font-lato font-bold text-3xl text-center leading-relaxed text-gray-900'>
-          I craft intuitive digital experiences that seamlessly blend creativity with technical precision.
-          My expertise lies in designing and developing optimized, high-performance systems that solve complex challenges. 
-           I thrive on pushing the boundaries of what's possible through efficient code and strategic problem-solving.
-        </h1>
+      <div className='text-center p-4 m-2'>
+        <div className='flex flex-col items-center space-y-4'>
+          <h1 className='text-7xl font-bold text-gray-800 tracking-tight'>
+            SCALABLE  SYSTEMS
+          </h1>
+          <h1 className='text-7xl font-bold text-gray-800 tracking-tight animate-fade-in-up animate-delay-300'>
+            & OPTIMIZED  EXPERIENCE
+          </h1>
+          <div className='flex items-center space-x-4 animate-fade-in-up animate-delay-100'>
+            <h1 className='text-7xl font-bold text-gray-800 tracking-tight'>
+              ENGINEER
+            </h1>
+            <p className='text-sm text-gray-600 italic'>
+              Based in Nairobi, Kenya
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   )

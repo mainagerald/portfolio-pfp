@@ -15,7 +15,7 @@ const ProfessionalIdentity = () => {
     },
     {
       title: 'Payments Engineer',
-      description: 'Architecting secure and seamless financial systems',
+      description: 'Architecting secure and seamless financial applications',
       icon: <Banknote className="text-green-500 w-8 h-8" />
     },
     {
