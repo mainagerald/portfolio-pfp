@@ -3,6 +3,7 @@ import { HiBriefcase, HiFolder, HiHome, HiIdentification, HiMail, HiMailOpen, Hi
 import { IoMdBriefcase } from 'react-icons/io'
 import { MdAccountCircle, MdEmail, MdHomeMax, MdPersonOutline, MdWorkOutline } from 'react-icons/md'
 import { RxAvatar } from 'react-icons/rx'
+import myAvatar from '../assets/avataaars.svg'
 import { Link, useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
@@ -17,7 +18,7 @@ const Navbar = () => {
   return (
     <div className='flex flex-row justify-between items-center border-b-2 shadow-sm border-gray-300'>
         <div className='flex flex-row items-center gap-2 p-2 m-2 border-2 rounded-3xl border-gray-600 hover:cursor-pointer' onClick={()=>navigate("/")}>
-        <HiUserCircle className='text-gray-700' size={25}/>
+        <img className='avatar-medium bg-blue-400 rounded-full' src={myAvatar} alt='avatar' />
         <p className='font-lato text-lg font-semibold'>mainagerald</p>
         </div>
         <div className='flex-row flex justify-between gap-4 border-gray-600 border-2 p-2 rounded-3xl'>

@@ -46,9 +46,9 @@ const Home = () => {
 
   if (isLoading) {
     return (
-      <div className='fixed inset-0 bg-gray-900 flex items-center justify-center z-50'>
+      <div className='fixed inset-0 bg-gray-300 flex items-center justify-center z-50'>
         <div className='fade-in'>
-          <h1 className='font-lato font-semibold text-3xl gap-2 text-gray-200'>👋{greeting}</h1>
+          <h1 className='font-lato font-semibold text-3xl gap-2 text-gray-900'>👋{greeting}</h1>
         </div>
       </div>
     );
@@ -56,21 +56,19 @@ const Home = () => {
 
   return (
     <div className="fade-in w-full flex flex-col">
-      <div className=' flex items-center justify-center mt-3'>
-        <div className='border-2 border-gray-300 p-2 rounded-full flex flex-row items-center'>
-          <img className='avatar-medium' src={myAvatar} alt='avatar' /><p className='font-lato text-lg'>Salutations, the name's Maina. Flavian Maina.</p>
+      <div className='fade-in flex items-center justify-center mt-3'>
+        <div className='p-2 rounded-full flex flex-row items-center bg-white shadow-md'>
+          <p className='font-lato text-lg italic'>Salutations, the name's Maina. Flavian Maina.</p>
         </div>
       </div>
       <div className='p-3'>
         <ProfessionalIdentity />
       </div>
-      <div className='p-5 mt-4 mr-2 ml-2 rounded-lg flex flex-col items-center justify-center bg-gradient-to-r from-gray-100 to-white'>
+      <div className='fade-in p-5 mt-4 mr-2 ml-2 rounded-lg flex flex-col items-center justify-center'>
         <h1 className='font-lato font-bold text-3xl text-center leading-relaxed text-gray-900'>
           I craft intuitive digital experiences that seamlessly blend creativity with technical precision.
-          My expertise lies in designing and developing optimized, high-performance systems that solve complex challenges.
-          With a keen eye for innovation and a rapid adaptability,
-          I transform technical problems and ideas into elegant, scalable solutions.
-          I thrive on pushing the boundaries of what's possible through efficient code and strategic problem-solving.
+          My expertise lies in designing and developing optimized, high-performance systems that solve complex challenges. 
+           I thrive on pushing the boundaries of what's possible through efficient code and strategic problem-solving.
         </h1>
       </div>
     </div>
