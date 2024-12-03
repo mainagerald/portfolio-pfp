@@ -1,0 +1,15 @@
+/* Add this to your CSS file (e.g., App.css) */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
