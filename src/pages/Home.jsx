@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import ProfessionalIdentity from '../components/ProfesionalIdentity';
-import { HiAcademicCap, HiArrowRight, HiDocumentText, HiLightningBolt, HiOutlineDesktopComputer } from 'react-icons/hi';
-import { Link } from 'lucide-react';
-import { FiArrowRight, FiCloudLightning } from 'react-icons/fi';
+import { FiArrowRight } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
-import { HiBuildingLibrary, HiCodeBracket, HiPaintBrush } from 'react-icons/hi2';
-import Card from '../components/Card';
-import CustomCard from '../components/Card';
+import { HiPaintBrush } from 'react-icons/hi2';
+import CustomCard from '../components/CustomCard';
 import { MdEditNote, MdHandyman, MdUmbrella } from 'react-icons/md';
 import { IoMdUmbrella } from 'react-icons/io';
 import { BsLightningCharge } from 'react-icons/bs';
+import { Card, CardContent } from '@mui/material';
 
 const Home = () => {
   const [greeting, setGreeting] = useState('');
@@ -37,6 +35,14 @@ const Home = () => {
         description: 'Engage comprehensively in the Software Development Life Cycle, implementing best practices, driving cross-functional collaboration, and ensuring end-to-end project excellence and operational productivity.', 
         icon: <IoMdUmbrella size={50} className='text-cyan-400'/>
     }
+]
+
+const myProjects=[
+  {name:'Suluhu', description: 'A dynamic software license management platform', stack:'Django, React, &more'},
+  {name:'Masqani', description:'Property and payments management application', stack:'Daraja API, Spring, React, MySql'},
+  {name:'TraderSentiment', description:'A stocks news outlet and performance tracker', stack:'Django, React, Finnhub API'},
+  {name:'Assigno', description: 'An assignment submission and review portal for tutors and peers', stack:'Spring, React, MySql'},
+  {name:'LijaShop', description:'A microserviced e-commerce platform for perfume sales', stack:'Spring, React, Keycloak, K8s, Docker'},
 ]
   const greetings = [
     'Hello',
@@ -67,7 +73,7 @@ const Home = () => {
     let greetingInterval = setInterval(() => {
       updateGreeting();
       if (index > greetings.length / 2) {
-        intervalTime = Math.max(intervalTime - 50, 50);
+        intervalTime = Math.max(intervalTime - 80, 25);
         clearInterval(greetingInterval);
         greetingInterval = setInterval(updateGreeting, intervalTime);
       }
@@ -114,19 +120,19 @@ const Home = () => {
           </div>
         </div>
         <div className='fade-in mt-2 p-3 flex justify-between gap-4 w-1/2 text-start text-balance text-lg'>
-          <p className='font-lato'> I’m a passionate Software Engineer currently driving innovation in payment systems at Equity Group Holdings. 
+          <p className='font-lato text-gray-800'> I’m a passionate Software Engineer currently driving innovation in payment systems at Equity Group Holdings. 
             My ethic is fueled by curiosity and a desire to create impactful and bespoke solutions.
             My passions lie in distributed systems, robust application performance, optimization, and security throughout the software development cycle, 
             while constantly seeking to expand my expertise in emerging technologies that shape the future of digital productivity.
           </p>
         </div>
       <div className='fade-in flex justify-end'>
-      <button onClick={()=>navigate('/about')} className='rounded-lg flex flex-row font-lato text-lg font-semibold shadow-md p-2 m-2 hover:cursor-pointer hover:bg-gray-100'>
+      <button onClick={()=>navigate('/about')} className='text-gray-800 rounded-lg flex flex-row font-lato text-lg font-semibold shadow-md p-2 m-2 hover:cursor-pointer hover:bg-gray-100'>
             About Me <FiArrowRight size={25}/>
           </button>
       </div>
       <div className='m-2 mt-3 p-2 border-t-2 border-gray-300'>
-        <p className='text-center text-xl font-bold text-blue-500'>What I Do...</p>
+        <p className='text-center text-xl font-bold text-blue-500'>What I Do ...</p>
       </div>
       <div className='grid grid-cols-1 sm:grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-4'>
         {tasksArray.map((task)=>(
@@ -135,9 +141,24 @@ const Home = () => {
       </div>
       <div className='m-2 p-2'>
         <h1 className='font-bold font-lato text-2xl text-green-500 flex-row flex gap-2 justify-center p-2'>My Projects<BsLightningCharge size={30}/></h1>
-        <p>Project 1</p>
-        <p>Project 2</p>
-        <p>Project 3</p>
+        <div className='grid grid-cols-1 space-y-1 m-2 p-2'>
+        {myProjects.map((project)=>(
+          <Card key={project.name} style={{boxShadow:'none'}}>
+            <div  className='hover:cursor-pointer' onClick={()=>navigate('/projects')}>
+            <CardContent className='flex justify-between items-center'>
+              <div className='p-1 m-2'>
+                <h1 className='font-bold text-xl text-start p-2 text-gray-800'>{project.name}</h1>
+                <p className='flex items-end italic text-sm'>{project.description}</p>
+              </div>
+              <h4 className='p-2 m-2 text-sm'>{project.stack}</h4>
+            </CardContent>
+            </div>
+          </Card>
+        ))}
+        </div>
+        <div className='flex justify-center'>
+          <button className='flex flex-row items-center gap-2 text-xl'>Project Details<FiArrowRight/></button>
+        </div>
       </div>
       </div>
     </div>

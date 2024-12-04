@@ -8,7 +8,7 @@ const CustomCard = ({icon, title, description}) => {
         <div className='flex justify-center p-1 m-1'>{icon}</div>
         <CardContent>
             <h2 className='font-bold text-red-400 m-1 p-1'>{title}</h2>
-            <p className='text-sm text-pretty'>{description}</p>
+            <p className='text-sm text-pretty text-gray-800'>{description}</p>
         </CardContent>
     </Card>
   )
