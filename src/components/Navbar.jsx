@@ -26,7 +26,7 @@ const Navbar = () => {
         <Link key={midLink.path} to={midLink.path} className=' hover:underline hover:bg-gray-200 p-1 rounded-xl cursor-pointer flex flex-row gap-2 shadow-md text-gray-800'>{midLink.icon}{midLink.name}</Link>
     ))}
         </div>
-        <Link className='flex items-center m-2 p-2 flex-row gap-1 border-0 rounded-3xl shadow-md hover:bg-gray-200' to='/contact'><HiMailOpen size={25}/>Contact Me</Link>
+        <Link className='flex items-center m-2 p-2 flex-row gap-1 border-0 rounded-3xl shadow-md hover:bg-gray-200' to='/contact'><HiMailOpen size={25}/>A fun button</Link>
     </div>
   )
 }
