@@ -156,8 +156,12 @@ const myProjects=[
           </Card>
         ))}
         </div>
-        <div className='flex justify-center'>
-          <button className='flex flex-row items-center gap-2 text-xl'>Project Details<FiArrowRight/></button>
+        <div className='flex justify-center mt-2 mb-3 p-2 border-b-2 border-gray-300'>
+          <button onClick={()=>navigate('/projects')}
+          className='flex flex-row items-center gap-2 text-xl shadow-md m-2 p-2 rounded-lg text-gray-800 hover:bg-gray-200'>Project Details<FiArrowRight/></button>
+        </div>
+        <div className='p-2 m-2'>
+          <h1>My Stack</h1>
         </div>
       </div>
       </div>
