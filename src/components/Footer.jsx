@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { FaLinkedin, FaGithub, FaDiscord, FaTwitter, FaCoffee } from 'react-icons/fa'
 import { BsLightningCharge } from 'react-icons/bs'
+import { FaX } from 'react-icons/fa6'
 
 const Footer = () => {
   const quickLinks = [
@@ -14,7 +15,7 @@ const Footer = () => {
   const socialLinks = [
     { 
       name: 'LinkedIn', 
-      icon: <FaLinkedin size={25} />, 
+      icon: <FaLinkedin size={25} className='text-blue-500'/>, 
       url: 'https://www.linkedin.com/in/flavian-maina/' 
     },
     { 
@@ -24,12 +25,12 @@ const Footer = () => {
     },
     { 
       name: 'Discord', 
-      icon: <FaDiscord size={25} />, 
+      icon: <FaDiscord size={25} className='bg-blue-500 text-white rounded-full'/>, 
       url: 'https://discordapp.com/users/YOUR_DISCORD_ID' 
     },
     { 
       name: 'Twitter', 
-      icon: <FaTwitter size={25} />, 
+      icon: <FaTwitter size={25} className='text-blue-500'/>, 
       url: 'https://twitter.com/mainagerald' 
     }
   ]
