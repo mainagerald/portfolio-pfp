@@ -82,7 +82,7 @@ const Projects = () => {
 
     return (
       <motion.div 
-        className="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer"
+        className="bg-professional-gradient rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer"
         onClick={handleProjectClick}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
@@ -113,7 +113,7 @@ const Projects = () => {
         <motion.div 
           initial={{ scale: 0.9 }}
           animate={{ scale: 1 }}
-          className="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+          className="bg-tech-mist-gradient rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
           onClick={(e) => e.stopPropagation()}
         >
           <div className="p-8">

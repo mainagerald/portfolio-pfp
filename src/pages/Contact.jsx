@@ -5,8 +5,8 @@ import { MdEmail, MdOutlineWavingHand } from "react-icons/md";
 const ContactPage = () => {
   return (
     <div className="fade-in w-full flex flex-col items-center p-5">
-      <h1 className="text-5xl font-bold text-gray-800">Get In Touch</h1>
-      <p className="text-lg text-gray-600 mt-2">I’d love to hear from you. Whether you have a question or just want to connect!</p>
+      <h1 className="text-5xl text-cyan-900 font-lato font-semibold">Get In Touch</h1>
+      <p className="text-lg text-gray-600 mt-2">I’d love to hear from you, whether you have a question or just want to connect!</p>
       
       <MdOutlineWavingHand />
 
@@ -27,7 +27,7 @@ const ContactPage = () => {
           <label className="font-lato text-gray-700">Message</label>
           <textarea className="p-2 border border-gray-300 rounded-lg" rows="5" placeholder="Your Message" required />
         </div>
-        <button type="submit" className="bg-blue-500 text-white rounded-lg p-2 hover:bg-blue-600 transition">
+        <button type="submit" className="bg-gradient-to-r from-violet-500 to-cyan-500 text-white rounded-lg p-2 hover:scale-110 transition">
           Send Message
         </button>
       </form>

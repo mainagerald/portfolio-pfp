@@ -109,7 +109,7 @@ const Home = () => {
 
   if (isLoading) {
     return (
-      <div className='fixed inset-0 bg-gray-100 flex items-center justify-center z-50'>
+      <div className='fixed inset-0 bg-tech-mist-gradient flex items-center justify-center z-50'>
         <div className='fade-in'>
           <h1 className='font-amatic font-semibold text-7xl gap-2 text-gray-900'>👋{greeting}</h1>
         </div>
@@ -152,8 +152,8 @@ const Home = () => {
           </p>
         </div>
         <div className='fade-in flex justify-end'>
-          <button onClick={() => navigate('/about')} className='text-gray-800 rounded-lg flex flex-row font-lato text-lg font-semibold shadow-md p-2 m-2 hover:cursor-pointer hover:bg-gray-100'>
-            About Me <FiArrowRight size={25} />
+          <button onClick={() => navigate('/about')} className='text-white rounded-full flex items-center flex-row font-lato text-lg font-semibold shadow-md p-1 m-2 hover:cursor-pointer bg-gradient-to-r from-violet-500 to-cyan-500 hover:scale-125 transition transform'>
+            About Me <FiArrowRight size={20} />
           </button>
         </div>
         <div className='m-2 mt-3 p-2 border-t-2 border-gray-300'>
@@ -168,7 +168,7 @@ const Home = () => {
           <h1 className='font-bold font-lato text-2xl text-green-500 flex-row flex gap-2 justify-center p-2'>My Projects<BsLightningCharge size={30} /></h1>
           <div className='grid grid-cols-1 space-y-1 m-2 p-2'>
             {myProjects.map((project) => (
-              <div className='bg-soft-blue-gradient hover:cursor-pointer border rounded-lg hover:scale-105 transition transform' 
+              <div className='bg-digital-whisper-gradient hover:cursor-pointer border rounded-lg hover:scale-105 transition transform' 
               key={project.name} onClick={() => navigate('/projects')}>
               <Card style={{ boxShadow: 'none', background:'none' }} className='project-list-card'>
                   <CardContent className='flex justify-between items-center'>
@@ -185,7 +185,7 @@ const Home = () => {
           </div>
           <div className='flex justify-center mt-2 mb-3 p-2 border-b-2 border-gray-300'>
             <button onClick={() => navigate('/projects')}
-              className='flex flex-row items-center gap-2 text-xl shadow-md m-2 p-2 rounded-lg text-gray-800 hover:bg-gray-200 hover:animate-bounce'>Project Details<FiArrowRight /></button>
+              className='flex flex-row items-center gap-1 text-xl shadow-md m-2 p-2 rounded-full text-white bg-gradient-to-r from-violet-500 to-cyan-500 transition transform hover:scale-110'>Project Details<FiArrowRight /></button>
           </div>
           <div className='p-2 m-2'>
             <h1 className='text-2xl font-lato font-bold text-amber-900 p-2 m-2'>My Stack</h1>

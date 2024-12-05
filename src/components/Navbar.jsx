@@ -17,7 +17,7 @@ const Navbar = () => {
         {name: 'About Me', path:'/about', icon: <HiIdentification className='text-neutral-50 bg-gradient-to-r from-violet-500 to-cyan-500 rounded-full' size={25}/>}
     ]
   return (
-    <div className='flex flex-row justify-between items-center border-b-0 shadow-sm border-gray-500 m-1'>
+    <div className='flex flex-row justify-between items-center border-b-0 shadow-sm border-gray-500 m-1 '>
         <div className='flex flex-row items-center gap-2 p-2 m-2 border-0 text-neutral-50 bg-gradient-to-r from-violet-500 to-cyan-500 rounded-full hover:cursor-pointer shadow-md' onClick={()=>navigate("/")}>
         <img className='avatar-medium bg-blue-400 rounded-full' src={myAvatar} alt='avatar' />
         <p className='font-doto text-lg font-semibold'>mainagerald</p>

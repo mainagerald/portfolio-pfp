@@ -6,7 +6,7 @@ import { BsLightningCharge } from 'react-icons/bs';
 const About = () => {
   const skills = [
     'Java', 'Python', 'JavaScript', 'Spring', 'Django', 
-    'Angular', 'React', 'Docker', 'Kubernetes', 'Azure DevOps'
+    'Angular', 'React', 'Docker', 'Kubernetes', 'Azure DevOps', 'AWS'
   ];
 
   const containerVariants = {
@@ -28,15 +28,15 @@ const About = () => {
   };
 
   return (
-    <div className="bg-gray-100 bg-gradient-to-r from-gray-200 to-white">
+    <div className="">
       <div className="flex-grow container mx-auto grid md:grid-cols-2 gap-8 m-3 p-2">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="bg-white p-8 rounded-xl shadow-lg"
+          className="bg-neutral-wash-gradient p-8 rounded-xl shadow-lg m-2"
         >
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex items-center gap-3 mb-6 ">
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
@@ -125,7 +125,7 @@ const About = () => {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-white p-8 rounded-xl shadow-lg"
+          className="bg-cloud-soft-gradient p-8 rounded-xl shadow-lg m-2"
         >
           <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
             Beyond Code
