@@ -4,6 +4,7 @@ import myAvatar from '../assets/avataaars.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import ContactButton from './ContactButton';
 import { HiMenu, HiX } from 'react-icons/hi';
+import { color } from 'framer-motion';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,7 +24,7 @@ const Navbar = () => {
             </div>
             <div className='md:hidden flex items-center'>
                 <button onClick={() => setIsMenuOpen(!isMenuOpen)} className='text-neutral-50'>
-                    {isMenuOpen ? <HiX size={30} /> : <HiMenu size={30} />}
+                    {isMenuOpen ? <HiX size={30} className='m-1 rounded-md text-gray-800 hover:scale-110'/> : <HiMenu size={30} className='m-1 rounded-md text-gray-800 hover:scale-110'/>}
                 </button>
             </div>
             <div className={`flex flex-col md:flex-row md:justify-between gap-4 p-2 rounded-3xl ${isMenuOpen ? 'block' : 'hidden'} md:flex`}>
