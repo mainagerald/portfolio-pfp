@@ -28,15 +28,15 @@ const About = () => {
   };
 
   return (
-    <div className="">
-      <div className="flex-grow container mx-auto grid md:grid-cols-2 gap-8 m-3 p-2">
+    <div className="mx-auto max-w-7xl p-4">
+      <div className="flex-grow container mx-auto grid md:grid-cols-2 gap-8">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="bg-neutral-wash-gradient p-8 rounded-xl shadow-lg m-2"
+          className="bg-neutral-wash-gradient p-8 rounded-xl shadow-lg"
         >
-          <div className="flex items-center gap-3 mb-6 ">
+          <div className="flex items-center gap-3 mb-6">
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
@@ -68,7 +68,7 @@ const About = () => {
               <span className="text-violet-500">{'</>'}</span>
             </h3>
             <div className="flex flex-wrap gap-2">
-              {skills.map((skill, index) => (
+              {skills.map((skill) => (
                 <motion.span
                   key={skill}
                   variants={itemVariants}
@@ -101,7 +101,7 @@ const About = () => {
             className="flex space-x-4"
           >
             {[
-              { icon: <FaLinkedin className="w-5 h-5" />, label: 'LinkedIn', href: import.meta.env.VITE_GITHUB_URL, color: 'hover:text-blue-600' },
+              { icon: <FaLinkedin className="w-5 h-5" />, label: 'LinkedIn', href: import.meta.env.VITE_LINKEDIN_URL, color: 'hover:text-blue-600' },
               { icon: <FaGithub className="w-5 h-5" />, label: 'GitHub', href: import.meta.env.VITE_GITHUB_URL, color: 'hover:text-gray-900' }
             ].map((social) => (
               <motion.a
@@ -125,7 +125,7 @@ const About = () => {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-cloud-soft-gradient p-8 rounded-xl shadow-lg m-2"
+          className="bg-cloud-soft-gradient p-8 rounded-xl shadow-lg"
         >
           <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
             Beyond Code
@@ -151,14 +151,14 @@ const About = () => {
                 title: 'Interests',
                 content: 'When I\'m not coding, I enjoy playing football, staying fit, reading fiction books, and staying updated with the latest tech and product insights.'
               }
-            ].map((section, index) => (
+            ].map((section) => (
               <motion.div
                 key={section.title}
                 variants={itemVariants}
                 className="p-4 rounded-lg hover:bg-gray-50 transition-colors duration-300"
               >
                 <h4 className="text-xl font-semibold text-gray-800 mb-2">{section.title}</h4>
-                <p className="text-gray-800 leading-relaxed">{section.content}</p>
+                <p className="text-gray-700">{section.content}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -166,6 +166,6 @@ const About = () => {
       </div>
     </div>
   );
-};
+}
 
 export default About;

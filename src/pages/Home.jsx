@@ -74,11 +74,11 @@ const Home = () => {
     'Konnichiwa',
     'Bonjour',
     'Jambo',
-    'Nǐ hǎo',
+    'Ni hao',
     'Hola',
     'Ciao',
     'Namaste',
-    'Merhaba',
+    'Oi Oi',
     'Salaam',
   ];
 
@@ -107,11 +107,12 @@ const Home = () => {
     return () => clearInterval(greetingInterval);
   }, [])
 
+ 
   if (isLoading) {
     return (
       <div className='fixed inset-0 bg-tech-mist-gradient flex items-center justify-center z-50'>
         <div className='fade-in'>
-          <h1 className='font-amatic font-semibold text-7xl gap-2 text-gray-900'>👋{greeting}</h1>
+          <h1 className='font-doto font-semibold text-7xl gap-2 text-gray-900'>👋{greeting}</h1>
         </div>
       </div>
     );
@@ -120,8 +121,8 @@ const Home = () => {
   return (
     <div className="fade-in w-full flex flex-col">
       <div className='fade-in flex items-center justify-center mt-3'>
-        <div className='p-2 rounded-full flex flex-row items-center bg-white shadow-md'>
-          <p className='font-lato text-lg italic p-2'>Salutations, the name's Maina. Flavian Maina.</p>
+        <div className='p-2 rounded-full flex flex-row items-center'>
+          <p className='font text-lg text-gray-900 font-normal p-2'>Salutations, the name's Maina. Flavian Maina.</p>
         </div>
       </div>
       <div className='p-3'>
@@ -129,14 +130,14 @@ const Home = () => {
       </div>
       <div className='text-center p-4 m-2'>
         <div className='flex flex-col items-center space-y-4 border-b-2 border-gray-300 p-2'>
-          <h1 className='text-7xl font-bold text-gray-800 tracking-tight'>
-            SCALABLE  SYSTEMS
+          <h1 className='text-5xl sm:text-6xl md:text-7xl font-bold text-gray-800 tracking-tight'>
+            SCALABLE SYSTEMS
           </h1>
-          <h1 className='text-7xl font-bold text-gray-800 tracking-tight animate-fade-in-up animate-delay-300'>
-            & OPTIMIZED  EXPERIENCE
+          <h1 className='text-5xl sm:text-6xl md:text-7xl font-bold text-gray-800 tracking-tight animate-fade-in-up animate-delay-300'>
+            & OPTIMIZED EXPERIENCE
           </h1>
           <div className='flex items-center space-x-4 animate-fade-in-up animate-delay-100'>
-            <h1 className='text-7xl font-bold text-gray-800 tracking-tight'>
+            <h1 className='text-5xl sm:text-6xl md:text-7xl font-bold text-gray-800 tracking-tight'>
               ENGINEER
             </h1>
             <p className='text-gray-600 italic'>
@@ -144,8 +145,9 @@ const Home = () => {
             </p>
           </div>
         </div>
-        <div className='fade-in mt-2 p-3 flex justify-between gap-4 w-1/2 text-start text-balance text-lg'>
-          <p className='font-lato text-gray-800'> I’m a passionate Software Engineer currently driving innovation in payment systems at Equity Group Holdings.
+        <div className='fade-in mt-2 p-3 flex justify-between gap-4 w-full md:w-1/2 text-start text-balance text-lg'>
+          <p className='font-lato text-gray-800'>
+            I’m a passionate Software Engineer currently driving innovation in payment systems at Equity Group Holdings.
             My ethic is fueled by curiosity and a desire to create impactful and bespoke solutions.
             My passions lie in distributed systems, robust application performance, optimization, and security throughout the software development cycle,
             while constantly seeking to expand my expertise in emerging technologies that shape the future of digital productivity.
@@ -165,7 +167,7 @@ const Home = () => {
           ))}
         </div>
         <div className='m-2 p-2'>
-          <h1 className='font-bold font-lato text-2xl text-green-500 flex-row flex gap-2 justify-center p-2'>My Projects<BsLightningCharge size={30} /></h1>
+          <h1 className='font-bold font-lato text-2xl text-gray-800 flex-row flex gap-2 justify-center p-2'>My Projects<BsLightningCharge size={30} /></h1>
           <div className='grid grid-cols-1 space-y-1 m-2 p-2'>
             {myProjects.map((project) => (
               <div className='bg-digital-whisper-gradient hover:cursor-pointer border rounded-lg hover:scale-105 transition transform' 
@@ -180,7 +182,6 @@ const Home = () => {
                   </CardContent>
               </Card>
               </div>
-
             ))}
           </div>
           <div className='flex justify-center mt-2 mb-3 p-2 border-b-2 border-gray-300'>
@@ -189,16 +190,16 @@ const Home = () => {
           </div>
           <div className='p-2 m-2'>
             <h1 className='text-2xl font-lato font-bold text-amber-900 p-2 m-2'>My Stack</h1>
-            <div className='flex-row flex'>
-              {skillSvg.map((skill, index)=>(
-                <img key={index} src={skill} style={{width:'60px', height:'60px', animationDelay: `${index * 0.5}s`}} className='skill-icon m-2'/>
+            <div className='flex flex-wrap justify-center'>
+              {skillSvg.map((skill, index) => (
+                <img key={index} src={skill} style={{ width: '60px', height: '60px', animationDelay: `${index * 0.5}s` }} className='skill-icon m-2' />
               ))}
             </div>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;

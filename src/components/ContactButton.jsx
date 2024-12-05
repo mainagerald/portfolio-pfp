@@ -64,7 +64,7 @@ const ContactButton = () => {
           {isHovered ? (
             <HiMailOpen className="text-xl" />
           ) : (
-            <HiMail className="text-xl" />
+            <HiMail className="text-xl " />
           )}
         </div>
         <span className="flex-grow text-center transition-all duration-300 ease-in-out">
