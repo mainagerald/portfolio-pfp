@@ -6,12 +6,14 @@ export default {
   ],
   theme: {
     extend: {
-      fontFamily:{
+      fontFamily: {
+        amatic: ['Amatic SC', 'cursive'],
+        doto: ['Doto', 'sans-serif'],
+        indie: ['Indie Flower', 'cursive'],
         lato: ['Lato', 'sans-serif'],
-        sans: ['Lato','sans-serif']
+        sans: ['Lato', 'sans-serif'],
       }
     },
   },
   plugins: [],
 }
-

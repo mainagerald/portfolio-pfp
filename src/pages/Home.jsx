@@ -61,6 +61,8 @@ const Home = () => {
     { name: 'TraderSentiment', description: 'A stocks news outlet and performance tracker', stack: 'Django, React, Finnhub API' },
     { name: 'Assigno', description: 'An assignment submission and review portal for tutors and peers', stack: 'Spring, React, MySql' },
     { name: 'LijaShop', description: 'A microserviced e-commerce platform for perfume sales', stack: 'Spring, React, Keycloak, K8s, Docker' },
+    { name: 'CodeCollabo', description: 'Upcoming platform for code review and collaboration', stack: 'React ...' },
+
   ]
 
   const skillSvg = [
@@ -107,9 +109,9 @@ const Home = () => {
 
   if (isLoading) {
     return (
-      <div className='fixed inset-0 bg-gray-300 flex items-center justify-center z-50'>
+      <div className='fixed inset-0 bg-gray-100 flex items-center justify-center z-50'>
         <div className='fade-in'>
-          <h1 className='font-lato font-semibold text-3xl gap-2 text-gray-900'>👋{greeting}</h1>
+          <h1 className='font-amatic font-semibold text-7xl gap-2 text-gray-900'>👋{greeting}</h1>
         </div>
       </div>
     );
@@ -166,8 +168,9 @@ const Home = () => {
           <h1 className='font-bold font-lato text-2xl text-green-500 flex-row flex gap-2 justify-center p-2'>My Projects<BsLightningCharge size={30} /></h1>
           <div className='grid grid-cols-1 space-y-1 m-2 p-2'>
             {myProjects.map((project) => (
-              <Card key={project.name} style={{ boxShadow: 'none' }}>
-                <div className='hover:cursor-pointer' onClick={() => navigate('/projects')}>
+              <div className='hover:bg-gray-200 hover:cursor-pointer border rounded-lg hover:scale-105 transition transform' 
+              key={project.name} onClick={() => navigate('/projects')}>
+              <Card style={{ boxShadow: 'none', background:'none' }} className='project-list-card'>
                   <CardContent className='flex justify-between items-center'>
                     <div className='p-1 m-2'>
                       <h1 className='font-bold text-xl text-start p-2 text-gray-800'>{project.name}</h1>
@@ -175,19 +178,20 @@ const Home = () => {
                     </div>
                     <h4 className='p-2 m-2 text-sm'>{project.stack}</h4>
                   </CardContent>
-                </div>
               </Card>
+              </div>
+
             ))}
           </div>
           <div className='flex justify-center mt-2 mb-3 p-2 border-b-2 border-gray-300'>
             <button onClick={() => navigate('/projects')}
-              className='flex flex-row items-center gap-2 text-xl shadow-md m-2 p-2 rounded-lg text-gray-800 hover:bg-gray-200'>Project Details<FiArrowRight /></button>
+              className='flex flex-row items-center gap-2 text-xl shadow-md m-2 p-2 rounded-lg text-gray-800 hover:bg-gray-200 hover:animate-bounce'>Project Details<FiArrowRight /></button>
           </div>
           <div className='p-2 m-2'>
             <h1 className='text-2xl font-lato font-bold text-amber-900 p-2 m-2'>My Stack</h1>
             <div className='flex-row flex'>
-              {skillSvg.map((skill)=>(
-                <img src={skill} style={{width:'60px', height:'60px'}} className='m-2'/>
+              {skillSvg.map((skill, index)=>(
+                <img key={index} src={skill} style={{width:'60px', height:'60px', animationDelay: `${index * 0.5}s`}} className='skill-icon m-2'/>
               ))}
             </div>
           </div>

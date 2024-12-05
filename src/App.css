@@ -12,8 +12,26 @@
     }
   }
 
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0); /* Start and end positions */
+    }
+    50% {
+      transform: translateY(-10px); /* Move up */
+    }
+  }
+  
+  .skill-icon {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+
   .avatar-medium{
     width: 30px;
     height: 30px;
   }
+
+
+
+
   

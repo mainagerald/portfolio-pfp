@@ -16,22 +16,22 @@ const Footer = () => {
     { 
       name: 'LinkedIn', 
       icon: <FaLinkedin size={25} className='text-blue-500'/>, 
-      url: 'https://www.linkedin.com/in/flavian-maina/' 
+      url: import.meta.env.VITE_LINKEDIN_URL
     },
     { 
       name: 'GitHub', 
       icon: <FaGithub size={25} />, 
-      url: 'https://github.com/mainagerald' 
+      url: import.meta.env.VITE_GITHUB_URL
     },
-    { 
+    {
       name: 'Discord', 
       icon: <FaDiscord size={25} className='bg-blue-500 text-white rounded-full'/>, 
-      url: 'https://discordapp.com/users/YOUR_DISCORD_ID' 
+      url: import.meta.env.VITE_DISCORD_URL
     },
     { 
       name: 'Twitter', 
       icon: <FaTwitter size={25} className='text-blue-500'/>, 
-      url: 'https://twitter.com/mainagerald' 
+      url: import.meta.env.VITE_TWITTER_URL
     }
   ]
 
@@ -82,7 +82,7 @@ const Footer = () => {
                 href={social.url} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-gray-900 hover:scale-110 transition duration-300 transform"
+                className="text-gray-600 hover:text-gray-900 hover:scale-150 transition duration-300 transform"
                 aria-label={social.name}
               >
                 {social.icon}
