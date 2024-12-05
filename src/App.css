@@ -31,7 +31,24 @@
     height: 30px;
   }
 
+/* Elegant and Subtle Gradient Variants */
 
+/* Full Page Background Gradient */
+.bg-soft-gradient {
+  background: linear-gradient(to right, #e6e9f0 0%, #eef1f5 100%);
+}
 
+/* Soft Blue Gradient */
+.bg-soft-blue-gradient {
+  background: linear-gradient(to right, #f0f4f8 0%, #e9f0f6 100%);
+}
 
-  
+/* Muted Violet to Cyan Gradient */
+.bg-muted-gradient {
+  background: linear-gradient(to right, #f3f4f6 0%, #e5e7eb 100%);
+}
+
+/* Subtle Tech Gradient */
+.bg-tech-gradient {
+  background: linear-gradient(to right, #f8fafc 0%, #f1f5f9 100%);
+}

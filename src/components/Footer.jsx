@@ -36,7 +36,7 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="bg-gray-100 shadow-md border-t border-gray-300 p-6">
+    <footer className="bg-soft-blue-gradient shadow-md border-t border-gray-300 p-6">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
         <div>
           <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">

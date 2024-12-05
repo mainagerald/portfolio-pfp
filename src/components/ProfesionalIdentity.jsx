@@ -80,7 +80,7 @@ const ProfessionalIdentity = () => {
   const CurrentRoleInfo = roles[currentRole];
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-lg">
+    <div className="w-full max-w-2xl mx-auto p-6 bg-tech-gradient rounded-lg shadow-lg">
       <div className="flex items-center space-x-4 mb-4">
         {CurrentRoleInfo.icon}
         <h2 className="text-2xl font-bold text-gray-800 tracking-wider">

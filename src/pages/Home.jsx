@@ -168,7 +168,7 @@ const Home = () => {
           <h1 className='font-bold font-lato text-2xl text-green-500 flex-row flex gap-2 justify-center p-2'>My Projects<BsLightningCharge size={30} /></h1>
           <div className='grid grid-cols-1 space-y-1 m-2 p-2'>
             {myProjects.map((project) => (
-              <div className='hover:bg-gray-200 hover:cursor-pointer border rounded-lg hover:scale-105 transition transform' 
+              <div className='bg-soft-blue-gradient hover:cursor-pointer border rounded-lg hover:scale-105 transition transform' 
               key={project.name} onClick={() => navigate('/projects')}>
               <Card style={{ boxShadow: 'none', background:'none' }} className='project-list-card'>
                   <CardContent className='flex justify-between items-center'>
