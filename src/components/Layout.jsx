@@ -7,7 +7,7 @@ const Layout = () => {
   return (
     <div className='h-screen flex flex-col bg-cool-breeze-gradient'>
         <Navbar/>
-        <main className='flex flex-grow flex-col overflow-y-auto  bg-calm-sky-gradient'>
+        <main className=' flex-grow flex-col overflow-y-auto  bg-calm-sky-gradient'>
             <Outlet/>
             <Footer/>
         </main>
