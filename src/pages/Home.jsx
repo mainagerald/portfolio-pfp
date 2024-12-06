@@ -112,11 +112,14 @@ const Home = () => {
     return (
       <div className='fixed inset-0 bg-tech-mist-gradient flex items-center justify-center z-50'>
         <div className='fade-in'>
-          <h1 className='font font-semibold text-7xl gap-2 text-gray-600'>👋{greeting}</h1>
+          <h1 className='font font-semibold text-4xl sm:text-5xl md:text-7xl gap-2 text-gray-600'>
+            👋{greeting}
+          </h1>
         </div>
       </div>
     );
   }
+  
 
   return (
     <div className="fade-in w-full flex flex-col">
