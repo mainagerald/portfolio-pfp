@@ -1,5 +1,7 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import { VitePWA } from 'vite-plugin-pwa';
+import sitemapPlugin from 'vite-plugin-sitemap';
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -27,15 +29,11 @@ export default defineConfig({
         ]
       }
     }),
-    sitemap({
+    sitemapPlugin({
       hostname: 'https://mainagerald.netlify.app',
-      dynamicRoutes: [
-        { path: '/', priority: 1.0 },
-        { path: '/projects', priority: 0.8 },
-        { path: '/about', priority: 0.7 },
-        { path: '/contact', priority: 0.6 }
-      ]
-    })
+      // Use a simple array of string routes
+      routes: ['/', '/projects', '/about', '/contact'],
+    }),
   ],
   test: {
     include: ['**/*.{test,spec}.{js,ts,jsx,tsx}'],
@@ -52,4 +50,4 @@ export default defineConfig({
       }
     }
   }
-})
+});
