@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Banknote, Brain, Code, Palette, ServerCog } from 'lucide-react';
+import './Layout/responsive.css';
 
 const ProfessionalIdentity = () => {
   const [displayText, setDisplayText] = useState('');
@@ -80,15 +81,15 @@ const ProfessionalIdentity = () => {
   const CurrentRoleInfo = roles[currentRole];
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 bg-tech-gradient rounded-lg shadow-lg">
+    <div className="w-full max-w-2xl mx-auto p-6 bg-tech-gradient rounded-lg shadow-lg professional-identity-container">
       <div className="flex items-center space-x-4 mb-4">
         {CurrentRoleInfo.icon}
-        <h2 className="text-2xl font-bold text-gray-800 tracking-wider">
+        <h2 className="text-2xl font-bold text-gray-800 tracking-wider professional-identity-title">
           {displayText}
           <span className="animate-pulse">|</span>
         </h2>
       </div>
-      <p className="text-gray-600 text-lg italic">
+      <p className="text-gray-600 text-lg italic professional-identity-description">
         {CurrentRoleInfo.description}
       </p>
     </div>

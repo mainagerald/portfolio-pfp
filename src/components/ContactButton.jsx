@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { HiMailOpen, HiMail } from 'react-icons/hi';
 import { useNavigate } from 'react-router-dom';
+import './Layout/responsive.css';
 
 const ContactButton = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -40,7 +41,7 @@ const ContactButton = () => {
       className={`
         flex items-center justify-center 
         px-3 py-2 
-        w-40 
+        w-full sm:w-40 max-w-[180px] 
         h-10 
         border-0 
         rounded-full 
@@ -67,7 +68,7 @@ const ContactButton = () => {
             <HiMail className="text-xl " />
           )}
         </div>
-        <span className="flex-grow text-center transition-all duration-300 ease-in-out">
+        <span className="flex-grow text-center transition-all duration-300 ease-in-out text-sm sm:text-base">
           {isHovered ? currentPhrase : "Let's Connect"}
         </span>
       </div>

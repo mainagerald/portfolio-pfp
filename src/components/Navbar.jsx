@@ -1,84 +1,137 @@
-import React, { useState } from 'react'
-import { HiBriefcase, HiFolder, HiHome, HiIdentification, HiMail, HiMailOpen, HiUserCircle, HiX, HiMenu } from 'react-icons/hi'
-import myAvatar from '../assets/avataaars.svg'
-import { Link, useNavigate } from 'react-router-dom'
-import ContactButton from './ContactButton'
+import React, { useState, useEffect, useRef } from 'react'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
+import { gsap } from 'gsap'
+import './Layout/responsive.css';
 
 const Navbar = () => {
     const navigate = useNavigate();
+    const location = useLocation();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-    const midLinks = [
-        {name: 'Home', path:'/', icon: <HiHome className='text-neutral-50 bg-gradient-to-r from-violet-500 to-cyan-500 rounded-full' size={25}/>},
-        {name: 'Projects', path:'/projects', icon: <HiBriefcase className='text-neutral-50 bg-gradient-to-r from-violet-500 to-cyan-500 rounded-full' size={25} />},
-        {name: 'About Me', path:'/about', icon: <HiIdentification className='text-neutral-50 bg-gradient-to-r from-violet-500 to-cyan-500 rounded-full' size={25}/>},
-        {name: 'Let\'s Connect', path:'/contact', icon: <HiMail className='text-neutral-50 bg-gradient-to-r from-violet-500 to-cyan-500 rounded-full' size={25}/>}
-    ]
+    const navbarRef = useRef(null);
+    const lastScrollY = useRef(0);
+    
+    // Simplified navigation links
+    const navLinks = [
+        {name: 'PROJECTS', path:'/projects'},
+        {name: 'SERVICES', path:'/services'},
+        {name: 'ABOUT', path:'/about'},
+        {name: 'CONNECT', path:'/contact'}
+    ];
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
+    
+    // Handle scroll behavior - hide on scroll down, show on scroll up
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+            const navbar = navbarRef.current;
+            
+            if (!navbar) return;
+            
+            // Scrolling down - hide navbar (only if we're not at the bottom of the page)
+            if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
+                // Check if we're not at the bottom of the page
+                const isAtBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 100;
+                
+                if (!isAtBottom) {
+                    gsap.to(navbar, {
+                        yPercent: -100,
+                        duration: 0.3,
+                        ease: 'power3.out'
+                    });
+                }
+            } 
+            // Scrolling up - show navbar
+            else if (currentScrollY < lastScrollY.current) {
+                gsap.to(navbar, {
+                    yPercent: 0,
+                    duration: 0.3,
+                    ease: 'power3.out'
+                });
+            }
+            
+            lastScrollY.current = currentScrollY;
+        };
+        
+        // Initial setup - make sure navbar is visible
+        gsap.set(navbarRef.current, { yPercent: 0 });
+        
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('resize', handleScroll); // Also check on resize
+        
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('resize', handleScroll);
+        };
+    }, []);
 
     return (
-        <div className='relative'>
-            <div className='flex flex-row justify-between items-center border-b-0 shadow-sm border-gray-500 m-1'>
-                {/* Avatar Section */}
-                <div 
-                    className='flex flex-row items-center gap-2 p-2 m-2 border-0 text-neutral-50 bg-gradient-to-r from-violet-500 to-cyan-500 rounded-full hover:cursor-pointer shadow-md' 
-                    onClick={()=>navigate("/")}
-                >
-                    <img className='avatar-medium bg-blue-400 rounded-full' src={myAvatar} alt='avatar' />
-                    <p className='font-doto text-lg font-semibold hidden md:block'>mainagerald</p>
-                </div>
-
-                {/* Desktop Navigation */}
-                <div className='hidden md:flex flex-row justify-between gap-4 border-0 p-2 rounded-3xl'>
-                    {midLinks.slice(0, 3).map((midLink)=>(
-                        <Link 
-                            key={midLink.path} 
-                            to={midLink.path} 
-                            className='p-1 hover:scale-90 ml-1 mr-1 hover:bg-blue-50 hover:text-blue-800 hover:shadow-lg rounded-xl cursor-pointer flex flex-row gap-2 shadow-md text-gray-800'
-                        >
-                            {midLink.icon}{midLink.name}
-                        </Link>
-                    ))}
-                </div>
-
-                {/* Desktop Contact Button */}
-                <Link to='/contact' className='hidden md:block'>
-                    <ContactButton />
-                </Link>
-
-                {/* Mobile Hamburger Menu */}
-                <div className='md:hidden flex items-center'>
-                    <button 
-                        onClick={toggleMenu} 
-                        className='p-2 focus:outline-none'
+        <header ref={navbarRef} className='navbar' aria-label="Main navigation">
+            <div className='container'>
+                <div className='navbar-content'>
+                    {/* Logo/Name Section */}
+                    <div 
+                        className='navbar-logo' 
+                        onClick={() => navigate('/')}
                     >
-                        {isMenuOpen ? <HiX size={25} /> : <HiMenu size={25} />}
-                    </button>
+                        <Link to='/' className='logo-link'>
+                            MG
+                        </Link>
+                    </div>
+
+                    {/* Desktop Navigation */}
+                    <nav className='navbar-links'>
+                        {navLinks.map((link) => (
+                            <Link 
+                                key={link.path} 
+                                to={link.path} 
+                                className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
+                            >
+                                {link.name}
+                            </Link>
+                        ))}
+                    </nav>
+
+                    {/* Mobile Menu Button */}
+                    <div className='navbar-menu-button'>
+                        <button 
+                            onClick={toggleMenu} 
+                            className='menu-toggle'
+                            aria-label='Toggle menu'
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                {isMenuOpen ? (
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                ) : (
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                                )}
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
 
-            {/* Mobile Menu Modal */}
+            {/* Mobile Menu */}
             {isMenuOpen && (
-                <div className='absolute z-50 right-0 mt-2 w-64 bg-white shadow-lg rounded-lg border border-gray-200 md:hidden'>
-                    <div className='flex flex-col p-4 space-y-2'>
-                        {midLinks.map((midLink)=>(
+                <div className='mobile-menu' aria-expanded={isMenuOpen}>
+                    <div className='mobile-menu-content' role="menu">
+                        {navLinks.map((link) => (
                             <Link 
-                                key={midLink.path} 
-                                to={midLink.path} 
-                                className='p-2 hover:bg-blue-50 hover:text-blue-800 hover:shadow-lg rounded-xl cursor-pointer flex flex-row gap-2 items-center'
+                                key={link.path} 
+                                to={link.path} 
+                                className={`mobile-nav-link ${location.pathname === link.path ? 'active' : ''}`}
                                 onClick={toggleMenu}
                             >
-                                {midLink.icon}{midLink.name}
+                                {link.name}
                             </Link>
                         ))}
                     </div>
                 </div>
             )}
-        </div>
-    )
-}
+        </header>
+    );
+};
 
-export default Navbar
+export default Navbar;
