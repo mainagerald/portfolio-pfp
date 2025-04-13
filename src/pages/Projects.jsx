@@ -54,7 +54,6 @@ const ProjectDetails = {
 const Projects=()=>{
   return (
     <div className="min-h-screen bg-black font-sans pt-4 sm:pt-6 md:pt-8 responsive-projects-page">
-      {/* <h1 className="text-center text-white text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 md:mb-8">Projects</h1> */}
       <ProjectDisplay projects={ProjectDetails} />
     </div>
   );
