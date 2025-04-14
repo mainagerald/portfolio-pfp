@@ -18,7 +18,7 @@ const TechStackSection = ({ techStack }) => {
     // GSAP animation
     gsap.to(container, {
       x: -totalWidth,
-      duration: 100, // Adjust for speed
+      duration: 30,
       ease: 'none',
       repeat: -1, // Infinite loop
       modifiers: {

@@ -29,6 +29,7 @@ import { BsUmbrella } from 'react-icons/bs';
 import ProjectPanels from '../components/ProjectPanels/ProjectPanels';
 import ServiceCards from '../components/ServiceCards/ServiceCards';
 import TechStackSection from '../components/TechStackSection ';
+import ViewMore from '../components/ViewMore';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -158,7 +159,7 @@ const Home = () => {
                 beyond the codeverse
               </h2>
               <p className="text-gray-300 text-lg">
-                From board games to hyperrealist sketches, I draw inspiration from diverse passions. These shape my approach to problem-solving and design, helping startups and tech companies build standout systems.
+                From board games to hyperrealist sketches, I draw inspiration from diverse passions. These shape my approach to problem-solving and design, equiping me to build standout systems.
               </p>
             </div>
           </div>
@@ -177,7 +178,7 @@ const Home = () => {
       </section>
 <section><div className='text-center text-amber-500 text-4xl sm:text-5xl md:text-7xl font-bold mt-6 sm:mt-8 md:mt-10 mb-4 sm:mb-6 md:mb-8'>Selected Works</div></section>
       <ProjectPanels/> 
-      {/* <ServiceCards/> */}
+      <ViewMore/>
       {/* Services Section */}
       <section className="p-0 mt-6 sm:mt-8 md:mt-10 bg-white responsive-services-section">
         <div className="bg-white">
