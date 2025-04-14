@@ -1,0 +1,7 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Rounded white background -->
+  <rect width="100" height="100" fill="white" rx="15" ry="15"/>
+  
+  <!-- Text centered with horizontal padding -->
+  <text x="50" y="54" text-anchor="middle" dominant-baseline="middle" font-size="60" fill="black" font-family="Arial, sans-serif" font-weight="bold">MG</text>
+</svg>

@@ -210,7 +210,7 @@ const About = () => {
           className="text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-white mb-12 pointer-events-none"
           
         >
-          about flavian maina
+          about maina gerald
         </h1>
         
         <div 

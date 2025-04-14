@@ -260,7 +260,7 @@ a:hover {
 
 /* Hero Section */
 .hero {
-  padding: 10rem 0 4rem;
+  padding: 4rem 0 4rem;
   background: linear-gradient(to bottom, #000000, #ff5500);
   position: relative;
   overflow: hidden;

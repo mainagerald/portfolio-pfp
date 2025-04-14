@@ -120,11 +120,27 @@ const Home = () => {
   return (
     <div className="fade-in">
       {/* Hero Section */}
-      <section className="hero min-h-screen flex items-center bg-black text-white responsive-hero">
-        <div className="container mx-auto px-4 max-w-6xl pt-24 md:pt-28">
-          <h1 className="hero-title text-4xl sm:text-6xl md:text-7xl font-black tracking-tight lowercase">
+      <section className="hero min-h-screen flex flex-col bg-black text-white responsive-hero">
+        {/* Full-width name at the top */}
+        <div className="w-[96vw] m-0 px-0 pt-0 md:pt-0 overflow-hidden mb-8">
+        <h1 className="text-white text-start whitespace-nowrap overflow-hidden pt-0 m-0 uppercase text-[14vw] font-black tracking-tight" style={{
+          width: '96vw',
+          maxWidth: '96vw',
+          position: 'relative',
+          left: '50%',
+          right: '50%',
+          marginLeft: '-48vw',
+          marginRight: '-50vw',
+        }}>
+          MAINA GERALD
+        </h1>
+      </div>
+
+        {/* Content container for title and stats */}
+        <div className="container mx-auto px-4 max-w-6xl mt-8 md:mt-12 flex-grow flex flex-col justify-center">
+          <h1 className="hero-title text-3xl sm:text-5xl md:text-6xl font-black tracking-tight uppercase">
             scalable systems <br />
-            & optimized experience <br />
+            & optimized experience <br/>
             engineer
           </h1>
           <div className="stats-grid mt-8 sm:mt-12 md:mt-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 md:gap-8">
@@ -176,9 +192,9 @@ const Home = () => {
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-blue-900/20 to-transparent" />
         </div>
       </section>
-<section><div className='text-center text-amber-500 text-4xl sm:text-5xl md:text-7xl font-bold mt-6 sm:mt-8 md:mt-10 mb-4 sm:mb-6 md:mb-8'>Selected Works</div></section>
-      <ProjectPanels/> 
-      <ViewMore/>
+      <section><div className='text-center text-amber-500 text-4xl sm:text-5xl md:text-7xl font-bold mt-6 sm:mt-8 md:mt-10 mb-4 sm:mb-6 md:mb-8'>Selected Works</div></section>
+      <ProjectPanels />
+      <ViewMore />
       {/* Services Section */}
       <section className="p-0 mt-6 sm:mt-8 md:mt-10 bg-white responsive-services-section">
         <div className="bg-white">
@@ -197,7 +213,7 @@ const Home = () => {
       </section>
 
       {/* Tech Stack Section */}
-      <TechStackSection techStack={techStack}/>
+      <TechStackSection techStack={techStack} />
       {/* <section className="section">
         <div className="container">
           <h2 className="text-4xl font-bold mb-12">My Tech Stack</h2>
@@ -229,7 +245,7 @@ const Home = () => {
               className="btn btn-primary"
               style={{ background: '#000', border: '1px solid #000' }}
             >
-Contact Me
+              Contact Me
             </a>
           </div>
         </div>
