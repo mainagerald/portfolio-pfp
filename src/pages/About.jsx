@@ -29,14 +29,14 @@ const About = () => {
     {
       title: "Gamer",
       intro: "kicks and giggles",
-      description: "Passionate about strategy and role-playing games that challenge the mind. Improvise. Adapt. Iterate. This hones problem-solving skills I apply daily to technical challenges and system design.",
-      favorites: ["ea fc", "mk","board games", "outfield field football", ],
+      description: "Win. Lose. Improvise. Adapt. Iterate. Win. This hones problem-solving skills that I apply to daily technical and non-technical challenges.",
+      favorites: ["ea fc", "mk","board games", "outfield ball", ],
       color: "from-purple-400 to-purple-600"
     },
     {
       title: "Film Enthusiast",
       intro: "adapting to genres",
-      description: "I'm rarely guided by genre - this would be a recipe for missing out. I like to indulge in unique narratives, cinematography, and visual storytelling techniques that inspire my approach to user experience in general.",
+      description: "I'm rarely guided by genre - a recipe for missing out. I like to indulge in narratives, cinematography, and visual storytelling techniques that inspire my approach to user experience in general.",
       favorites: ["Inglorious Bastards", "MidSommar", "Etc"],
       color: "from-green-400 to-green-600"
     },
