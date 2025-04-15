@@ -239,14 +239,13 @@ const Home = () => {
             <p className="text-xl mb-12 text-white">
               Interested in working together? I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.
             </p>
-            <a
-              // href="mailto:mainagerald910@gmail.com"
-              href='/contact'
+            <Link
+              to='/contact'
               className="btn btn-primary"
               style={{ background: '#000', border: '1px solid #000' }}
             >
               Contact Me
-            </a>
+            </Link>
           </div>
         </div>
       </section>
