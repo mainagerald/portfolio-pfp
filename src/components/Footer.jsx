@@ -13,10 +13,9 @@ const Footer = () => {
     { name: 'Connect', path: '/contact' },
   ];
   const socialLinks = [
-    { name: 'LinkedIn', icon: <FaLinkedin size={20} />, url: 'https://linkedin.com' },
-    { name: 'X', icon: <FaXTwitter size={20} />, url: 'https://x.com' },
-    { name: 'GitHub', icon: <FaGithub size={20} />, url: 'https://github.com' },
-    { name: 'YouTube', icon: <FaYoutube size={20} />, url: 'https://youtube.com' },
+    { name: 'LinkedIn', icon: <FaLinkedin size={20} />, url: 'https://www.linkedin.com/in/flavian-maina-gerald/' },
+    { name: 'X', icon: <FaXTwitter size={20} />, url: 'https://x.com/flavianmaina' },
+    { name: 'GitHub', icon: <FaGithub size={20} />, url: 'https://github.com/mainagerald' },
   ];
 
   return (
