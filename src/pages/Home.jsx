@@ -5,8 +5,11 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import '../components/Layout/responsive.css';
 import { GiSkills } from 'react-icons/gi';
 import { SiTechcrunch, SiGithub } from 'react-icons/si';
-import { MdEditNote, MdHandyman, MdRocketLaunch } from 'react-icons/md';
-import { FaUserGraduate } from 'react-icons/fa';
+import { MdEditNote, MdHandyman, MdRocketLaunch, MdSecurity, MdArchitecture } from 'react-icons/md';
+import { FaUserGraduate, FaCode, FaServer, FaDocker, FaUniversalAccess } from 'react-icons/fa';
+import { BiTestTube } from 'react-icons/bi';
+import { BsRobot } from 'react-icons/bs';
+import { AiFillApi } from 'react-icons/ai';
 
 import aws from '../assets/aws.svg';
 import django from '../assets/django.svg';
@@ -38,26 +41,78 @@ const Home = () => {
   const aboutRef = useRef(null);
   const contentRefs = useRef([]);
 
-  const services = [
+  const skillsAndServices = [
     {
-      title: 'Design',
-      description: 'Architect comprehensive system schemas and API interfaces, optimizing application performance and creating intuitive frontend designs.',
-      icon: <HiPaintBrush size={36} className='text-accent-primary' />
+      title: 'UI Development',
+      description: 'Creating responsive, intuitive, and accessible user interfaces with modern frameworks.',
+      icon: <FaCode size={32} className='text-accent-primary' />,
+      size: 'medium',
+      color: 'bg-gradient-to-br from-blue-500/10 to-purple-500/10',
+      image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
     },
     {
-      title: 'Build',
-      description: 'Develop robust applications with a strategic focus on performance optimization, advanced security protocols, and enterprise-grade fault tolerance.',
-      icon: <MdHandyman size={36} className='text-accent-primary' />
+      title: 'API Development',
+      description: 'Building robust RESTful and GraphQL APIs with comprehensive documentation and security.',
+      icon: <AiFillApi size={32} className='text-accent-primary' />,
+      size: 'large',
+      color: 'bg-gradient-to-br from-green-500/10 to-teal-500/10',
+      image: 'https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
     },
     {
-      title: 'Document',
-      description: 'Maintain comprehensive technical documentation spanning the entire application lifecycle, ensuring clear, maintainable resources.',
-      icon: <MdEditNote size={36} className='text-accent-primary' />
+      title: 'DevOps',
+      description: 'Implementing CI/CD pipelines, containerization, and infrastructure as code for seamless deployment.',
+      icon: <FaDocker size={32} className='text-accent-primary' />,
+      size: 'medium',
+      color: 'bg-gradient-to-br from-blue-600/10 to-cyan-500/10',
+      image: 'https://images.unsplash.com/photo-1607743386760-88ac62b89b8a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
     },
     {
-      title: 'Own',
-      description: 'Engage comprehensively in the Software Development Life Cycle, implementing best practices and ensuring end-to-end project excellence.',
-      icon: <BsUmbrella size={36} className='text-accent-primary' />
+      title: 'Architecture',
+      description: 'Designing scalable, maintainable system architectures with a focus on performance and reliability.',
+      icon: <MdArchitecture size={32} className='text-accent-primary' />,
+      size: 'large',
+      color: 'bg-gradient-to-br from-amber-500/10 to-orange-500/10',
+      image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    },
+    {
+      title: 'Platform Engineering',
+      description: 'Building and maintaining robust platforms that enable developer productivity and system reliability.',
+      icon: <FaServer size={32} className='text-accent-primary' />,
+      size: 'medium',
+      color: 'bg-gradient-to-br from-indigo-500/10 to-purple-600/10',
+      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    },
+    {
+      title: 'LLM Applications',
+      description: 'Developing AI-powered applications leveraging large language models for intelligent solutions.',
+      icon: <BsRobot size={32} className='text-accent-primary' />,
+      size: 'medium',
+      color: 'bg-gradient-to-br from-pink-500/10 to-rose-500/10',
+      image: 'https://images.unsplash.com/photo-1677442135136-760c813028c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    },
+    {
+      title: 'Security Standards',
+      description: 'Implementing industry best practices for application security, data protection, and compliance.',
+      icon: <MdSecurity size={32} className='text-accent-primary' />,
+      size: 'small',
+      color: 'bg-gradient-to-br from-red-500/10 to-orange-600/10',
+      image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    },
+    {
+      title: 'WCAG Compliance',
+      description: 'Ensuring digital accessibility through adherence to Web Content Accessibility Guidelines.',
+      icon: <FaUniversalAccess size={32} className='text-accent-primary' />,
+      size: 'small',
+      color: 'bg-gradient-to-br from-green-600/10 to-emerald-500/10',
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    },
+    {
+      title: 'Testing',
+      description: 'Comprehensive testing strategies including unit, integration, and end-to-end testing for quality assurance.',
+      icon: <BiTestTube size={32} className='text-accent-primary' />,
+      size: 'small',
+      color: 'bg-gradient-to-br from-violet-500/10 to-purple-500/10',
+      image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
     }
   ];
 
@@ -179,7 +234,7 @@ const Home = () => {
               </p>
             </div>
           </div>
-          <div className="mt-8 sm:mt-10 md:mt-12 text-center">
+          <div className="mt-16 sm:mt-16 md:mt-16 text-center">
             <Link
               to="/about"
               className="inline-block px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-lg transition-colors duration-300 lowercase"
@@ -188,26 +243,61 @@ const Home = () => {
             </Link>
           </div>
         </div>
-        <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-blue-900/20 to-transparent" />
-        </div>
       </section>
-      <section><div className='text-center text-amber-500 text-4xl sm:text-5xl md:text-7xl font-bold mt-6 sm:mt-8 md:mt-10 mb-4 sm:mb-6 md:mb-8'>Selected Works</div></section>
+      <section className='p-4'>
+      <div className='text-center text-amber-500 text-4xl sm:text-5xl md:text-7xl font-bold font-sans mt-6 sm:mt-8 md:mt-10 mb-4 sm:mb-6 md:mb-8'>Selected Works</div>
       <ProjectPanels />
       <ViewMore />
-      {/* Services Section */}
-      <section className="p-0 mt-6 sm:mt-8 md:mt-10 bg-white responsive-services-section">
-        <div className="bg-white">
-          <h2 className="text-4xl sm:text-5xl md:text-7xl text-black font-bold">Services</h2>
+      </section>
+      
 
-          <div className="services-grid mt-6 sm:mt-8 md:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 p-4 md:p-6">
-            {services.map((service) => (
-              <div key={service.title} className="service-card">
-                <div className="mb-4 text-green-500">{service.icon}</div>
-                <h3 className="service-title">{service.title}</h3>
-                <p>{service.description}</p>
-              </div>
-            ))}
+      {/* Skills and Services Section */}
+      <section className="p-4 py-16 mt-6 sm:mt-8 md:mt-10 bg-white responsive-services-section">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl text-black font-bold mb-2">Skills & Services</h2>
+          <p className="text-gray-600 text-lg mb-10">Expertise across the full software development lifecycle</p>
+
+          <div className="bento-grid grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            {skillsAndServices.map((item) => {
+              // Determine grid span based on size
+              const sizeClasses = {
+                small: 'col-span-1 row-span-1',
+                medium: 'col-span-1 md:col-span-2 row-span-1',
+                large: 'col-span-2 md:col-span-2 row-span-1 md:row-span-2'
+              };
+              
+              return (
+                <div 
+                  key={item.title} 
+                  className={`bento-card ${sizeClasses[item.size]} ${item.color} rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm flex flex-col justify-between relative`}
+                  style={{
+                    backgroundImage: `url(${item.image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                  }}
+                >
+                  {/* Overlay to ensure text readability */}
+                  <div className="absolute inset-0 bg-white/80 backdrop-blur-sm"></div>
+                  
+                  {/* Content positioned above the overlay */}
+                  <div className="relative z-10 p-6 flex flex-col h-full">
+                    <div className="flex justify-between items-start mb-4">
+                      <div className="p-3 rounded-full bg-white/50 backdrop-blur-sm shadow-sm">
+                        {item.icon}
+                      </div>
+                      {item.size === 'large' && (
+                        <span className="text-xs font-medium py-1 px-3 rounded-full bg-white/50 backdrop-blur-sm text-gray-700">Core expertise</span>
+                      )}
+                    </div>
+                    
+                    <div className="mt-auto">
+                      <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-2">{item.title}</h3>
+                      <p className="text-gray-600 text-sm md:text-base">{item.description}</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
