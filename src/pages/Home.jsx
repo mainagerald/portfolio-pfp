@@ -48,7 +48,7 @@ const Home = () => {
       icon: <FaCode size={32} className='text-accent-primary' />,
       size: 'medium',
       color: 'bg-gradient-to-br from-blue-500/10 to-purple-500/10',
-      image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1699040309386-11c615ed64d5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHVpfGVufDB8fDB8fHww'
     },
     {
       title: 'API Development',
@@ -56,7 +56,7 @@ const Home = () => {
       icon: <AiFillApi size={32} className='text-accent-primary' />,
       size: 'large',
       color: 'bg-gradient-to-br from-green-500/10 to-teal-500/10',
-      image: 'https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1658204191944-374e8115a2de?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8YXBpfGVufDB8fDB8fHww'
     },
     {
       title: 'DevOps',
@@ -64,7 +64,7 @@ const Home = () => {
       icon: <FaDocker size={32} className='text-accent-primary' />,
       size: 'medium',
       color: 'bg-gradient-to-br from-blue-600/10 to-cyan-500/10',
-      image: 'https://images.unsplash.com/photo-1607743386760-88ac62b89b8a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1667984390538-3dea7a3fe33d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2xvdWQlMjBjb21wdXRlcnxlbnwwfHwwfHx8MA%3D%3D'
     },
     {
       title: 'Architecture',
@@ -72,7 +72,7 @@ const Home = () => {
       icon: <MdArchitecture size={32} className='text-accent-primary' />,
       size: 'large',
       color: 'bg-gradient-to-br from-amber-500/10 to-orange-500/10',
-      image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      image: 'https://plus.unsplash.com/premium_photo-1685086785636-2a1a0e5b591f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzB8fHNvZnR3YXJlfGVufDB8fDB8fHww'
     },
     {
       title: 'Platform Engineering',
@@ -80,7 +80,7 @@ const Home = () => {
       icon: <FaServer size={32} className='text-accent-primary' />,
       size: 'medium',
       color: 'bg-gradient-to-br from-indigo-500/10 to-purple-600/10',
-      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1580584126903-c17d41830450?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTJ8fHNvZnR3YXJlfGVufDB8fDB8fHww'
     },
     {
       title: 'LLM Applications',
@@ -88,7 +88,7 @@ const Home = () => {
       icon: <BsRobot size={32} className='text-accent-primary' />,
       size: 'medium',
       color: 'bg-gradient-to-br from-pink-500/10 to-rose-500/10',
-      image: 'https://images.unsplash.com/photo-1677442135136-760c813028c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1645839057098-5ea8761a6b09?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bGxtfGVufDB8fDB8fHww'
     },
     {
       title: 'Security Standards',
@@ -96,7 +96,7 @@ const Home = () => {
       icon: <MdSecurity size={32} className='text-accent-primary' />,
       size: 'small',
       color: 'bg-gradient-to-br from-red-500/10 to-orange-600/10',
-      image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1618482914248-29272d021005?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y3liZXIlMjBzZWN1cml0eXxlbnwwfHwwfHx8MA%3D%3D'
     },
     {
       title: 'WCAG Compliance',
@@ -104,7 +104,7 @@ const Home = () => {
       icon: <FaUniversalAccess size={32} className='text-accent-primary' />,
       size: 'small',
       color: 'bg-gradient-to-br from-green-600/10 to-emerald-500/10',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1633904244276-b57f72c983a6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YWNjZXNzaWJpbGl0eXxlbnwwfHwwfHx8MA%3D%3D'
     },
     {
       title: 'Testing',
@@ -112,7 +112,7 @@ const Home = () => {
       icon: <BiTestTube size={32} className='text-accent-primary' />,
       size: 'small',
       color: 'bg-gradient-to-br from-violet-500/10 to-purple-500/10',
-      image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1601961545517-59307b1fbac3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dGVzdGluZ3xlbnwwfHwwfHx8MA%3D%3D'
     }
   ];
 
