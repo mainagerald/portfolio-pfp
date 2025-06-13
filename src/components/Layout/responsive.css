@@ -120,6 +120,7 @@
     right: 0;
     position: fixed;
     background-color: transparent;
+    z-index: 100;
     /* Removed background blur and border */
   }
   
@@ -128,22 +129,33 @@
     height: var(--header-height);
   }
   
+  /* We're now handling mobile menu with fixed positioning in the component */
   .mobile-menu {
-    height: calc(100vh - var(--header-height));
-    top: var(--header-height);
-    padding: 1rem;
-    background-color: rgba(0, 0, 0, 0.9);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    /* Overlay covers the entire screen */
+    display: flex;
+    justify-content: flex-end;
   }
   
   .mobile-menu-content {
-    padding-top: 1rem;
+    /* Styling is now handled in the component with Tailwind classes */
+    overflow-y: auto;
   }
   
   .mobile-nav-link {
-    font-size: 1.25rem;
-    padding: 0.75rem 0;
+    display: block;
+    width: 100%;
+    color: var(--text-color);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+  
+  .mobile-nav-link.active {
+    color: var(--accent-primary);
+    font-weight: bold;
   }
 }
 
