@@ -85,14 +85,14 @@ const ContactPage = () => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="message">How can we help?</label>
+              <label htmlFor="message">Your Message</label>
               <textarea
                 id="message"
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
                 rows="6"
-                placeholder="I'd like to know how I can help me with..."
+                placeholder="Hello..."
                 required
               ></textarea>
             </div>

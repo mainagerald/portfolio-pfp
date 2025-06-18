@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
+import { useQuery } from 'react-query';
 import BlogPost from '../components/BlogPost';
 import BlogCard from '../components/BlogCard';
+import { getAllPosts, getPostBySlug } from '../services/blogService';
 
-// Sample blog data (replace with your actual data source later)
+// Fallback sample data in case the API fails
 const samplePosts = [
   {
     id: 1,
@@ -75,24 +77,64 @@ const samplePosts = [
 // Blog component that handles both list and single post views
 export default function Blog() {
   const { slug } = useParams();
-  const [posts, setPosts] = useState(samplePosts);
-  const [currentPost, setCurrentPost] = useState(null);
   
-  useEffect(() => {
-    // In a real app, you would fetch posts from an API
-    // For now, we're using the sample data
-    
-    // If a slug is provided, find the matching post
-    if (slug) {
-      const post = posts.find(p => p.slug === slug);
-      setCurrentPost(post || null);
-    } else {
-      setCurrentPost(null);
+  // Fetch all blog posts
+  const { data: posts = [], isLoading: postsLoading, error: postsError } = useQuery(
+    'posts',
+    getAllPosts,
+    {
+      staleTime: 1000 * 60 * 5, // 5 minutes
+      enabled: !slug, // Only fetch posts when not viewing a single post
     }
-    
-    // Scroll to top when changing posts
+  );
+  
+  // Fetch single post if slug is provided
+  const { data: currentPost, isLoading: postLoading, error: postError } = useQuery(
+    ['post', slug],
+    () => getPostBySlug(slug),
+    {
+      enabled: !!slug, // Only fetch when slug is available
+      staleTime: 1000 * 60 * 5, // 5 minutes
+    }
+  );
+  
+  // Scroll to top when changing posts
+  React.useEffect(() => {
     window.scrollTo(0, 0);
-  }, [slug, posts]);
+  }, [slug]);
+  
+  // Handle loading states
+  const isLoading = (slug && postLoading) || (!slug && postsLoading);
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-white py-16 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
+        <div className="animate-pulse flex space-x-4">
+          <div className="rounded-full bg-gray-200 h-12 w-12"></div>
+          <div className="flex-1 space-y-4 py-1">
+            <div className="h-4 bg-gray-200 rounded w-3/4"></div>
+            <div className="space-y-2">
+              <div className="h-4 bg-gray-200 rounded"></div>
+              <div className="h-4 bg-gray-200 rounded w-5/6"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+  
+  // Handle error states
+  const hasError = (slug && postError) || (!slug && postsError);
+  if (hasError) {
+    return (
+      <div className="min-h-screen bg-white py-16 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
+        <h1 className="text-3xl font-bold text-gray-900">Error Loading Content</h1>
+        <p className="mt-2 text-gray-600">There was a problem loading the blog content. Please try again later.</p>
+        <Link to="/" className="mt-4 inline-flex items-center text-indigo-600 hover:text-indigo-500">
+          <ArrowLeft size={16} className="mr-1" /> Return to Home
+        </Link>
+      </div>
+    );
+  }
   
   // If we have a slug but no matching post was found
   if (slug && !currentPost) {
@@ -101,7 +143,7 @@ export default function Blog() {
         <h1 className="text-3xl font-bold text-gray-900">Post Not Found</h1>
         <p className="mt-2 text-gray-600">The post you're looking for doesn't exist or has been removed.</p>
         <Link to="/blog" className="mt-4 inline-flex items-center text-indigo-600 hover:text-indigo-500">
-          <ArrowLeft size={16} className="mr-1" /> Back to all posts
+          <ArrowLeft size={16} className="mr-1" /> Back to Blog
         </Link>
       </div>
     );
@@ -113,8 +155,8 @@ export default function Blog() {
       <div className="bg-white min-h-screen">
         {/* Back button */}
         <div className="max-w-3xl mx-auto pt-10 px-4 sm:px-6 lg:px-8">
-          <Link to="/blog" className="inline-flex items-center text-gray-600 hover:text-gray-900">
-            <ArrowLeft size={16} className="mr-1" /> All posts
+          <Link to="/blog" className="mt-10 inline-flex items-center text-gray-600 hover:text-gray-900 border px-2 py-1 rounded-full">
+            <ArrowLeft size={20} className="mr-1 border rounded-full bg-black text-white" /> Back
           </Link>
         </div>
         
@@ -127,18 +169,24 @@ export default function Blog() {
   return (
     <div className="bg-white min-h-screen">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <header className="text-center mb-12">
+        <header className="text-center mb-12 mt-10">
           <h1 className="text-5xl font-bold text-gray-900 mb-4">Blog</h1>
           <p className="text-xl text-gray-500 max-w-2xl mx-auto">
             Thoughts, ideas, and insights on software engineering, architecture, and technology.
           </p>
         </header>
         
-        <div className="grid gap-12">
-          {posts.map(post => (
-            <BlogCard key={post.id} post={post} />
-          ))}
-        </div>
+        {posts.length === 0 ? (
+          <div className="text-center py-12">
+            <p className="text-xl text-gray-500">No blog posts found.</p>
+          </div>
+        ) : (
+          <div className="grid gap-12">
+            {posts.filter(post => post.published !== false).map(post => (
+              <BlogCard key={post.id} post={post} />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
