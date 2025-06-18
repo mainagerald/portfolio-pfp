@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Loader2 } from 'lucide-react';
 import { useQuery } from 'react-query';
 import BlogPost from '../components/BlogPost';
 import BlogCard from '../components/BlogCard';
@@ -83,7 +83,7 @@ export default function Blog() {
     'posts',
     getAllPosts,
     {
-      staleTime: 1000 * 60 * 5, // 5 minutes
+      staleTime: 1000 * 60 * 1, // 5 minutes
       enabled: !slug, // Only fetch posts when not viewing a single post
     }
   );
@@ -107,20 +107,73 @@ export default function Blog() {
   const isLoading = (slug && postLoading) || (!slug && postsLoading);
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-white py-16 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
-        <div className="animate-pulse flex space-x-4">
-          <div className="rounded-full bg-gray-200 h-12 w-12"></div>
-          <div className="flex-1 space-y-4 py-1">
-            <div className="h-4 bg-gray-200 rounded w-3/4"></div>
+      <div className="min-h-screen bg-white py-16 px-4 sm:px-6 lg:px-8">
+        <div className="space-y-8 max-w-3xl mx-auto">
+          
+          {/* Title placeholder */}
+          <div className="skeleton h-8 w-3/4 mx-auto" />
+  
+          {/* Author and date */}
+          <div className="flex items-center space-x-4">
+            <div className="skeleton h-10 w-10 rounded-full" />
             <div className="space-y-2">
-              <div className="h-4 bg-gray-200 rounded"></div>
-              <div className="h-4 bg-gray-200 rounded w-5/6"></div>
+              <div className="skeleton h-4 w-24" />
+              <div className="skeleton h-4 w-16" />
             </div>
           </div>
+  
+          {/* Cover image placeholder */}
+          <div className="skeleton w-full h-64 rounded" />
+  
+          {/* Paragraph lines */}
+          <div className="space-y-4">
+            <div className="skeleton h-4 w-full" />
+            <div className="skeleton h-4 w-5/6" />
+            <div className="skeleton h-4 w-4/6" />
+            <div className="skeleton h-4 w-3/6" />
+            <div className="skeleton h-4 w-4/6" />
+            <div className="skeleton h-4 w-5/6" />
+          </div>
+  
+          {/* Tags or category */}
+          <div className="flex space-x-2 pt-4">
+            <div className="skeleton h-6 w-16 rounded-full" />
+            <div className="skeleton h-6 w-20 rounded-full" />
+          </div>
         </div>
+  
+        {/* Add shimmer CSS */}
+        <style jsx>{`
+          .skeleton {
+            position: relative;
+            background-color: #e2e8f0;
+            overflow: hidden;
+          }
+          .skeleton::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -150%;
+            height: 100%;
+            width: 150%;
+            background: linear-gradient(
+              90deg,
+              transparent,
+              rgba(255, 255, 255, 0.6),
+              transparent
+            );
+            animation: shimmer 1.5s infinite;
+          }
+          @keyframes shimmer {
+            100% {
+              left: 100%;
+            }
+          }
+        `}</style>
       </div>
     );
   }
+  
   
   // Handle error states
   const hasError = (slug && postError) || (!slug && postsError);
