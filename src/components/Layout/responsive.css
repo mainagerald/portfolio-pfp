@@ -159,16 +159,6 @@
   }
 }
 
-/* Contact page responsive adjustments */
-@media (max-width: 768px) {
-  .responsive-contact-form {
-    flex-direction: column;
-  }
-  
-  .form-section {
-    padding: 1.5rem;
-  }
-}
 
 /* Projects page responsive adjustments */
 @media (max-width: 768px) {

@@ -13,10 +13,9 @@ const Navbar = () => {
     // Check if current route has light background (add routes that have white/light backgrounds)
     const isLightBackground = [
         '/blog',
-        '/contact'
     ].some(path => location.pathname.startsWith(path));
+    console.log("isLightBackground ?", isLightBackground);
     
-    // Simplified navigation links
     const navLinks = [
         {name: 'PROJECTS', path:'/projects'},
         {name: 'SERVICES', path:'/services'},
@@ -113,7 +112,7 @@ const Navbar = () => {
                         className='navbar-logo' 
                         onClick={() => navigate('/')}
                     >
-                        <Link to='/' className='logo-link'>
+                                                <Link to='/' className={`logo-link ${isLightBackground ? 'text-black' : ''}`}>
                             MG
                         </Link>
                     </div>
@@ -123,8 +122,9 @@ const Navbar = () => {
                         {navLinks.map((link) => (
                             <Link 
                                 key={link.path} 
-                                to={link.path} 
-                                className={`nav-link ${location.pathname === link.path ? 'active' : ''} ${isLightBackground ? 'text-black' : ''}`}
+                                to={link.path}
+                                style={isLightBackground ? { color: 'black' } : {}} 
+                                className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
                             >
                                 {link.name}
                             </Link>
