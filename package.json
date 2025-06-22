@@ -19,6 +19,7 @@
     "@mui/material": "^6.1.10",
     "@supabase/supabase-js": "^2.50.0",
     "@uiw/react-md-editor": "^4.0.7",
+    "browser-image-compression": "^2.0.2",
     "date-fns": "^4.1.0",
     "emailjs": "^4.0.3",
     "framer-motion": "^11.13.1",
