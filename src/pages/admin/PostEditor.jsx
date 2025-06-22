@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import MDEditor from '@uiw/react-md-editor';
 import { useQuery, useMutation, useQueryClient } from 'react-query';
 import imageCompression from 'browser-image-compression';
 import { getPostBySlug, createPost, updatePost, uploadImage } from '../../services/blogService';
 import { useAuth } from '../../context/AuthContext';
+import { ArrowLeftIcon } from 'lucide-react';
 
 
 export default function PostEditor() {
@@ -59,7 +60,7 @@ export default function PostEditor() {
   const createPostMutation = useMutation(createPost, {
     onSuccess: () => {
       queryClient.invalidateQueries('posts');
-      navigate('/admin/dashboard');
+      navigate('/admin/mg/dashboard');
     },
   });
   
@@ -70,7 +71,7 @@ export default function PostEditor() {
       onSuccess: () => {
         queryClient.invalidateQueries('posts');
         queryClient.invalidateQueries(['post', id]);
-        navigate('/admin/dashboard');
+        navigate('/admin/mg/dashboard');
       },
     }
   );
@@ -174,10 +175,10 @@ export default function PostEditor() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-white">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <header className="bg-white shadow-sm sticky top-0 z-10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <header className="pt-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1 flex flex-col sm:flex-row justify-between items-center gap-4">
             <div className="flex-1 min-w-0">
               <h1 className="text-2xl font-bold text-gray-900 truncate">
                 {isEditMode ? 'Edit Post' : 'Create New Post'}
@@ -193,7 +194,7 @@ export default function PostEditor() {
               </button>
               <button
                 type="button"
-                onClick={() => navigate('/admin/dashboard')}
+                onClick={() => navigate('/admin/mg/dashboard')}
                 className="px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 transition-colors"
               >
                 Cancel
@@ -202,14 +203,16 @@ export default function PostEditor() {
           </div>
         </header>
 
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          
+<Link to="/admin/mg/dashboard" className="px-2 py-1 rounded mb-2 inline-flex items-center gap-2 text-black underline"><ArrowLeftIcon className="w-4 h-4" /> Back to Dashboard</Link>
           {error && (
-            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-6" role="alert">
+            <div className="bg-red-300/50 text-red-700 px-4 py-3 rounded relative mb-6" role="alert">
               <span className="block sm:inline">{error}</span>
             </div>
           )}
-
-          <div className="lg:grid lg:grid-cols-12 lg:gap-8">
+          <div className="lg:grid lg:grid-cols-12 lg:gap-8 text-black">
+            
             <div className="lg:col-span-8 xl:col-span-9">
               <div className="bg-white shadow-md rounded-lg p-4 sm:p-6">
                 <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">
@@ -220,7 +223,7 @@ export default function PostEditor() {
                   id="title"
                   {...register('title', { required: 'Title is required' })}
                   onChange={handleTitleChange}
-                  className="mt-1 block w-full shadow-sm sm:text-lg border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+                  className="mt-1 p-1 block w-full shadow-sm sm:text-lg border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
                   placeholder="Your Post Title"
                 />
                 {errors.title && (
@@ -251,7 +254,7 @@ export default function PostEditor() {
                       type="text"
                       id="subtitle"
                       {...register('subtitle')}
-                      className="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                      className="mt-1 p-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
                   </div>
                   <div>
@@ -277,7 +280,7 @@ export default function PostEditor() {
                       type="text"
                       id="tags"
                       {...register('tags')}
-                      className="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                      className="mt-1 p-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
                   </div>
                   <div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import  formatDate from '../utils/FormatDate';
 
 // BlogCard component for displaying blog post previews in a list
 export default function BlogCard({ post }) {
@@ -31,15 +32,15 @@ export default function BlogCard({ post }) {
         {/* Author and date info */}
         <div className="flex items-center mb-4">
           <img 
-            src={post.authorImage} 
+            src={`https://images.unsplash.com/photo-1708401540190-6aabea855d7e?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzF8fGdvYXR8ZW58MHx8MHx8fDA%3D`} 
             alt={post.author}
             className="w-8 h-8 rounded-full mr-3"
             loading="lazy"
           />
           <div className="text-sm">
-            <p className="text-gray-900 font-medium">{post.author}</p>
+            <p className="text-gray-900 font-medium">{post.author.startsWith('flavian') ? 'Maina Gerald' : post.author}</p>
             <div className="flex items-center text-gray-500">
-              <span className="mr-2">{post.publishedDate}</span>
+              <span className="mr-2">{formatDate(post.created_at)}</span>
               <span>·</span>
               <span className="ml-2">{post.readTime}</span>
             </div>
@@ -48,7 +49,7 @@ export default function BlogCard({ post }) {
         
         {/* Tags */}
         <div className="flex flex-wrap gap-2">
-          {post.tags.slice(0, 3).map(tag => (
+          {post?.tags.slice(0, 3).map(tag => (
             <span 
               key={tag} 
               className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800"

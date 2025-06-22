@@ -49,7 +49,7 @@ const ProtectedRoute = ({ children }) => {
   
   useEffect(() => {
     if (!loading && !user) {
-      navigate('/admin/login');
+      navigate('/admin/mg/login');
     }
   }, [user, loading, navigate]);
   
@@ -71,18 +71,18 @@ function AppRoutes() {
       </Route>
       <Route path='*' element={<NotFound />} />
       {/* Admin routes */}
-      <Route path='/admin/login' element={<Login />} />
-      <Route path='/admin/dashboard' element={
+      <Route path='/admin/mg/login' element={<Login />} />
+      <Route path='/admin/mg/dashboard' element={
         <ProtectedRoute>
           <Dashboard />
         </ProtectedRoute>
       } />
-      <Route path='/admin/posts/new' element={
+      <Route path='/admin/mg/posts/new' element={
         <ProtectedRoute>
           <PostEditor />
         </ProtectedRoute>
       } />
-      <Route path='/admin/posts/edit/:id' element={
+      <Route path='/admin/mg/posts/edit/:id' element={
         <ProtectedRoute>
           <PostEditor />
         </ProtectedRoute>

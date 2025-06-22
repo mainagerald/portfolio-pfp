@@ -132,11 +132,12 @@ const Navbar = () => {
                     </nav>
 
                     {/* Mobile Menu Button */}
-                    <div className={`navbar-menu-button ${isLightBackground ? 'text-black' : 'text-white'}`}>
+                    <div className={`navbar-menu-button`}>
                         <button 
                             onClick={toggleMenu} 
                             className='menu-toggle'
                             aria-label='Toggle menu'
+                            style={isLightBackground ? { color: 'red' } : {}} 
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 {isMenuOpen ? (

@@ -1,78 +1,10 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Loader2 } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { useQuery } from 'react-query';
 import BlogPost from '../components/BlogPost';
 import BlogCard from '../components/BlogCard';
 import { getAllPosts, getPostBySlug } from '../services/blogService';
-
-// Fallback sample data in case the API fails
-const samplePosts = [
-  {
-    id: 1,
-    slug: 'building-scalable-systems',
-    title: 'Building Scalable Systems for Modern Applications',
-    subtitle: 'Lessons learned from designing high-performance architectures',
-    content: `
-      <p class="lead">Scalability is one of the most critical aspects of modern application design. As user bases grow and data volumes expand, the ability to scale efficiently becomes a key differentiator.</p>
-      
-      <p>In my experience working with distributed systems, I've found that several principles consistently lead to more scalable architectures:</p>
-      
-      <h2>1. Design for Horizontal Scaling</h2>
-      <p>Vertical scaling (adding more resources to a single server) has natural limits. Horizontal scaling—adding more machines to your resource pool—offers virtually unlimited growth potential. This requires stateless application design where possible, with shared state externalized to purpose-built data stores.</p>
-      
-      <blockquote>
-        "Don't scale by making things bigger; scale by making big things from small pieces."
-      </blockquote>
-      
-      <h2>2. Embrace Asynchronous Processing</h2>
-      <p>Synchronous request/response patterns create tight coupling and limit throughput. By embracing message queues and event-driven architectures, systems can process work at their own pace, absorbing traffic spikes and degrading gracefully under load.</p>
-      
-      <h2>3. Cache Strategically</h2>
-      <p>Caching is a powerful tool, but it must be applied thoughtfully. Identify hot spots in your data access patterns and apply appropriate caching strategies—whether that's client-side caching, CDNs, application caches, or database result caching.</p>
-      
-      <p>The journey to building truly scalable systems is ongoing. As technologies evolve and user expectations grow, our approaches must adapt. What remains constant is the need for thoughtful architecture that anticipates growth and embraces change.</p>
-    `,
-    author: 'Maina Gerald',
-    authorImage: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    publishedDate: '2025-05-28',
-    readTime: '5 min read',
-    coverImage: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2000&q=80',
-    tags: ['Architecture', 'Scalability', 'System Design']
-  },
-  {
-    id: 2,
-    slug: 'future-of-llm-applications',
-    title: 'The Future of LLM Applications in Enterprise Software',
-    subtitle: 'How large language models are transforming business applications',
-    content: `
-      <p class="lead">Large Language Models (LLMs) are rapidly transforming how we build and interact with software. The implications for enterprise applications are particularly profound.</p>
-      
-      <p>As someone working at the intersection of traditional software engineering and AI, I've observed several key trends emerging:</p>
-      
-      <h2>Natural Language Interfaces</h2>
-      <p>The most immediate impact of LLMs is the ability to create natural language interfaces for complex systems. Rather than navigating menus and forms, users can simply describe what they want to accomplish. This dramatically reduces training time and increases productivity, especially for occasional users of complex enterprise systems.</p>
-      
-      <h2>Context-Aware Assistance</h2>
-      <p>Beyond simple command processing, LLMs excel at understanding context and providing relevant suggestions. This enables a new class of "AI copilots" that can assist users throughout their workflow, offering relevant information, suggesting next steps, and automating routine tasks.</p>
-      
-      <blockquote>
-        "The best interface is often no interface at all. LLMs help us move toward ambient computing where technology recedes into the background."
-      </blockquote>
-      
-      <h2>Knowledge Synthesis</h2>
-      <p>Enterprise knowledge is often fragmented across documents, emails, chat logs, and tribal knowledge. LLMs can connect these dots, synthesizing information from disparate sources to answer complex questions or generate comprehensive reports.</p>
-      
-      <p>While challenges remain—particularly around accuracy, hallucinations, and data privacy—the trajectory is clear. LLMs will become a fundamental component of enterprise software, augmenting human capabilities and enabling new ways of working.</p>
-    `,
-    author: 'Maina Gerald',
-    authorImage: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    publishedDate: '2025-06-05',
-    readTime: '6 min read',
-    coverImage: 'https://images.unsplash.com/photo-1677442135136-760c813dce95?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2000&q=80',
-    tags: ['AI', 'LLM', 'Enterprise Software']
-  }
-];
 
 // Blog component that handles both list and single post views
 export default function Blog() {
@@ -83,10 +15,12 @@ export default function Blog() {
     'posts',
     getAllPosts,
     {
-      staleTime: 1000 * 60 * 1, // 5 minutes
+      staleTime: 1000 * 60 * 1, // 1 minute
       enabled: !slug, // Only fetch posts when not viewing a single post
     }
   );
+
+  console.log(posts);
   
   // Fetch single post if slug is provided
   const { data: currentPost, isLoading: postLoading, error: postError } = useQuery(
@@ -143,7 +77,7 @@ export default function Blog() {
         </div>
   
         {/* Add shimmer CSS */}
-        <style jsx>{`
+        <style>{`
           .skeleton {
             position: relative;
             background-color: #e2e8f0;

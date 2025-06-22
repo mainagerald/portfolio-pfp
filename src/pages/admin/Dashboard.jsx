@@ -56,7 +56,7 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 text-gray-800">
+    <div className="min-h-screen bg-white text-gray-800">
       <header className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
           <h1 className="text-2xl font-bold text-gray-900">Maina's Blog</h1>
@@ -66,7 +66,7 @@ export default function Dashboard() {
             </span>
             <button
               onClick={handleLogout}
-              className="px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors"
+              className="px-4 py-2 border border-transparent text-sm font-medium rounded-xl text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors"
             >
               Logout
             </button>
@@ -77,8 +77,8 @@ export default function Dashboard() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
           <Link
-            to="/admin/posts/new"
-            className="w-full sm:w-auto px-2 py-1 border border-transparent text-sm font-medium rounded-md text-white bg-black transition-colors flex items-center justify-center"
+            to="/admin/mg/posts/new"
+            className="w-full sm:w-auto px-2 py-1 border border-transparent text-sm font-medium rounded-xl text-white bg-black transition-colors flex items-center justify-center"
           >
             <span className="text-lg mr-2">+</span> New Blog
           </Link>
@@ -107,7 +107,7 @@ export default function Dashboard() {
                     <div className="flex items-center space-x-2 flex-shrink-0 w-full sm:w-auto">
                       <Link
                         to={`/admin/posts/edit/${post.id}`}
-                        className="flex-1 sm:flex-initial justify-center px-3 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
+                        className="flex-1 sm:flex-initial justify-center px-3 py-2 border border-gray-300 text-sm font-medium rounded-xl text-gray-700 bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
                       >
                         Edit
                       </Link>
@@ -115,13 +115,13 @@ export default function Dashboard() {
                         to={`/blog/${post.slug}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 sm:flex-initial justify-center px-3 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
+                        className="flex-1 sm:flex-initial justify-center px-3 py-2 border border-gray-300 text-sm font-medium rounded-xl text-gray-700 bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
                       >
                         View
                       </Link>
                       <button
                         onClick={() => handleDelete(post.id)}
-                        className="flex-1 sm:flex-initial justify-center px-3 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors"
+                        className="flex-1 sm:flex-initial justify-center px-3 py-2 border border-transparent text-sm font-medium rounded-xl text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors"
                       >
                         Delete
                       </button>
@@ -143,7 +143,7 @@ export default function Dashboard() {
             to="/"
             className="text-sm text-indigo-600 hover:text-indigo-500 hover:underline"
           >
-            ← Back to main website
+            ← Back to Home
           </Link>
         </div>
       </main>
