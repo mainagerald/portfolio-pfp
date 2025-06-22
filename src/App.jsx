@@ -15,7 +15,7 @@ const Contact = lazy(() => import('./pages/Contact'))
 const Projects = lazy(() => import('./pages/Projects'))
 const Services = lazy(() => import('./pages/Services'))
 const Blog = lazy(() => import('./pages/Blog'))
-
+const NotFound = lazy(() => import('./pages/error/notFound'));
 // Admin pages
 const Login = lazy(() => import('./pages/admin/Login'))
 const Dashboard = lazy(() => import('./pages/admin/Dashboard'))
@@ -69,7 +69,7 @@ function AppRoutes() {
         <Route path='/services' element={<Services />} />
         <Route path='/blog/:slug?' element={<Blog />} />
       </Route>
-      
+      <Route path='*' element={<NotFound />} />
       {/* Admin routes */}
       <Route path='/admin/login' element={<Login />} />
       <Route path='/admin/dashboard' element={

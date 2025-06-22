@@ -74,8 +74,8 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
       fetch(event.request)
         .then((response) => {
-          // If network request succeeds, cache a copy
-          if (response && response.status === 200) {
+          // If network request succeeds, cache a copy for GET requests
+          if (response && response.status === 200 && event.request.method === 'GET') {
             const responseToCache = response.clone();
             caches.open(CACHE_NAME).then((cache) => {
               cache.put(event.request, responseToCache);
