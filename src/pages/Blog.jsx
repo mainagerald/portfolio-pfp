@@ -32,6 +32,7 @@ export default function Blog() {
     }
   );
   
+  
   // Scroll to top when changing posts
   React.useEffect(() => {
     window.scrollTo(0, 0);
@@ -157,9 +158,9 @@ export default function Blog() {
     <div className="bg-white min-h-screen">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <header className="text-center mb-12 mt-10">
-          <h1 className="text-5xl font-bold text-gray-900 mb-4">Blog</h1>
-          <p className="text-xl text-gray-500 max-w-2xl mx-auto">
-            Thoughts, ideas, and insights on software engineering, architecture, and technology.
+          <h1 className="text-3xl font-bold text-gray-900 mb-4">The Mainagerald Blog</h1>
+          <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+            My thoughts, ideas, and insights on software engineering, architecture, and technology.
           </p>
         </header>
         

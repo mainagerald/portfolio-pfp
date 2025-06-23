@@ -6,7 +6,7 @@ const BUCKET_NAME = import.meta.env.VITE_SUPABASE_BUCKET;
 export async function getAllPosts() {
   const { data, error } = await supabase
     .from('posts')
-    .select('id, title, published, content, created_at, slug, cover_image, author, author, tags')
+    .select('id, title, published, content, created_at, slug, cover_image, author, author, tags, read_time')
     .order('created_at', { ascending: false });
   
   if (error) throw error;
@@ -17,7 +17,7 @@ export async function getAllPosts() {
 export async function getPostBySlug(slug) {
   const { data, error } = await supabase
     .from('posts')
-    .select('id, title, published, content, created_at, slug, cover_image, author, author, tags')
+    .select('id, title, published, content, created_at, slug, cover_image, author, author, tags, read_time')
     .eq('slug', slug)
     .single();
   
