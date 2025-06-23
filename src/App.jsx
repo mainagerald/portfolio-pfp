@@ -82,7 +82,7 @@ function AppRoutes() {
           <PostEditor />
         </ProtectedRoute>
       } />
-      <Route path='/admin/mg/posts/edit/:id' element={
+      <Route path='/admin/mg/posts/edit/:slug' element={
         <ProtectedRoute>
           <PostEditor />
         </ProtectedRoute>

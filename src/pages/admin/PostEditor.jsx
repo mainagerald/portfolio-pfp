@@ -10,8 +10,9 @@ import { ArrowLeftIcon } from 'lucide-react';
 
 
 export default function PostEditor() {
-  const { id } = useParams();
-  const isEditMode = !!id;
+  const { slug } = useParams();
+  const [id, setId] = useState('');
+  const isEditMode = !!slug;
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   const { user } = useAuth();
@@ -33,18 +34,20 @@ export default function PostEditor() {
   
   // Fetch post data if in edit mode
   const { isLoading: isLoadingPost } = useQuery(
-    ['post', id],
-    () => getPostBySlug(id),
+    ['post', slug],
+    () => getPostBySlug(slug),
     {
       enabled: isEditMode,
       onSuccess: (data) => {
+        console.log("Editing data:", data);
         if (data) {
-          // Populate form with existing post data
+          setId(data.id); // Set the ID for update
           reset({
             title: data.title,
             subtitle: data.subtitle,
             slug: data.slug,
             published: data.published,
+            read_time: data.read_time || 5,
             tags: data.tags ? data.tags.join(', ') : '',
           });
           setContent(data.content);
@@ -66,11 +69,14 @@ export default function PostEditor() {
   
   // Update post mutation
   const updatePostMutation = useMutation(
-    (data) => updatePost(id, data),
+    (data) => {
+      console.log('Mutation updating post with ID:', id);
+      return updatePost(id, data);
+    },
     {
       onSuccess: () => {
         queryClient.invalidateQueries('posts');
-        queryClient.invalidateQueries(['post', id]);
+        queryClient.invalidateQueries(['post', slug]);
         navigate('/admin/mg/dashboard');
       },
     }
@@ -95,6 +101,7 @@ export default function PostEditor() {
         subtitle: formData.subtitle,
         slug: formData.slug,
         content: content,
+        read_time: formData.read_time,
         published: formData.published === 'true',
         cover_image: coverImageUrl,
         author: user?.email || 'Admin',
@@ -103,6 +110,7 @@ export default function PostEditor() {
       
       // Create or update post
       if (isEditMode) {
+        console.log('Updating post with ID:', id);
         await updatePostMutation.mutateAsync(postData);
       } else {
         await createPostMutation.mutateAsync(postData);

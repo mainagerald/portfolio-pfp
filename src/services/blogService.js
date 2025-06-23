@@ -38,14 +38,19 @@ export async function createPost(postData) {
 
 // Update an existing blog post
 export async function updatePost(id, postData) {
+
   const { data, error } = await supabase
     .from('posts')
     .update(postData)
     .eq('id', id)
-    .select();
-  
-  if (error) throw error;
-  return data[0];
+    .select(); // Request the updated row back
+
+  if (error) {
+    console.error('Supabase update error:', error);
+    throw error;
+  }
+
+  return data?.[0];
 }
 
 // Delete a blog post
