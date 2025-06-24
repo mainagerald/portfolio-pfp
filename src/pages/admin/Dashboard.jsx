@@ -75,7 +75,7 @@ export default function Dashboard() {
     <div className="min-h-screen bg-white text-gray-800">
       <header className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <h1 className="text-2xl font-bold text-gray-900">Maina's Blog</h1>
+          <h1 className="text-2xl font-bold text-gray-900">MainaGerald</h1>
           <div className="flex items-center space-x-4">
             <span className="text-sm font-bold text-gray-600 hidden sm:block">
               {user?.email.startsWith('flavian') ? 'Admin' : 'User'}
@@ -100,62 +100,80 @@ export default function Dashboard() {
           </Link>
         </div>
 
-        <div className="bg-white border-b border-gray-300 overflow-hidden">
-          <ul className="divide-y divide-gray-200">
-            {posts && posts.length > 0 ? (
-              posts.map((post) => (
-                <li key={post.id} className="p-2 sm:p-2 hover:bg-gray-50 transition-colors">
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                    <div className="flex-1 min-w-0">
-                      <Link to={`/admin/posts/edit/${post.id}`} className="block">
-                        <p className="text-lg font-semibold text-amber-700/90 truncate">
-                          {post.title}
-                        </p>
-                      </Link>
-                      <p className="text-sm text-gray-500">
-                        {post.content.slice(0, 100)}...
-                      </p>
-                      <img src={post.cover_image} alt={post.title} className="w-48 h-48 md:h-full object-cover rounded-lg" />
-                      <p className="mt-1 text-sm text-gray-500">
+        <div className="space-y-6">
+          {posts && posts.length > 0 ? (
+            posts.map((post) => (
+              <div key={post.id} className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden">
+                <div className="flex flex-col md:flex-row">
+                  {/* Cover Image */}
+                  {post.cover_image && (
+                    <div className="md:w-64 flex-shrink-0">
+                      <img 
+                        src={post.cover_image} 
+                        alt={post.title} 
+                        className="w-full h-48 md:h-full object-cover" 
+                      />
+                    </div>
+                  )}
+
+                  {/* Content and Details */}
+                  <div className="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center text-sm text-gray-500 mb-3">
                         {post.published 
-                          ? <span className="text-green-600 font-medium">Published</span> 
-                          : <span className="text-yellow-600 font-medium">Draft</span>}
-                        <span className="mx-2">·</span>
-                        {format(new Date(post.created_at), 'MMM dd, yyyy')}
+                          ? <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-teal-100 text-teal-800">Published</span> 
+                          : <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-yellow-100 text-yellow-800">Draft</span>}
+                        <span className="mx-2.5">·</span>
+                        <span>{format(new Date(post.created_at), 'MMM dd, yyyy')}</span>
+                      </div>
+
+                      <Link to={`/admin/mg/posts/edit/${post.slug}`} className="block">
+                        <h3 className="text-xl font-bold text-gray-800 hover:text-indigo-700 transition-colors">
+                          {post.title}
+                        </h3>
+                      </Link>
+                      
+                      <p className="mt-2 text-gray-600 text-sm leading-relaxed">
+                        {post.content.slice(0, 150)}...
                       </p>
                     </div>
-                    <div className="flex space-x-2 flex-shrink-0 w-full sm:w-auto">
+
+                    {/* Action Buttons */}
+                    <div className="mt-6 flex items-center space-x-5">
                       <Link
                         to={`/admin/mg/posts/edit/${post.slug}`}
-                        className="flex-1 sm:flex-initial justify-center px-3 py-2 border border-gray-300 text-sm font-medium rounded-xl text-gray-700 bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
+                        className="flex items-center text-sm text-gray-600 hover:text-indigo-600 font-medium transition-colors"
                       >
-                        <FaEdit/>
+                        <FaEdit className="mr-2" />
+                        <span>Edit</span>
                       </Link>
                       <Link
                         to={`/blog/${post.slug}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 sm:flex-initial justify-center px-3 py-2 border border-gray-300 text-sm font-medium rounded-xl text-gray-700 bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
+                        className="flex items-center text-sm text-gray-600 hover:text-indigo-600 font-medium transition-colors"
                       >
-                        <FaEye/>
+                        <FaEye className="mr-2" />
+                        <span>View</span>
                       </Link>
                       <button
                         onClick={(e) => handleDeleteClick(e, post.id)}
-                        className="flex-1 sm:flex-initial justify-center px-3 py-2 border border-transparent text-sm font-medium rounded-xl text-red-600 border-red-600 hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors"
+                        className="flex items-center text-sm text-red-600 hover:text-red-800 font-medium transition-colors"
                       >
-                        <FaTrashAlt/>
+                        <FaTrashAlt className="mr-2" />
+                        <span>Delete</span>
                       </button>
                     </div>
                   </div>
-                </li>
-              ))
-            ) : (
-              <li className="p-6 text-center text-gray-500">
-                <h3 className="text-lg font-medium">No blog posts yet</h3>
-                <p className="mt-1">Click "Create New Post" to get started.</p>
-              </li>
-            )}
-          </ul>
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className="p-8 text-center text-gray-500 bg-gray-50 rounded-lg">
+              <h3 className="text-lg font-medium">No blog posts yet</h3>
+              <p className="mt-1">Click "Create New Post" to get started.</p>
+            </div>
+          )}
         </div>
         
         <div className="mt-8 text-center">

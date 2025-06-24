@@ -29,8 +29,10 @@ export default function BlogCard({ post }) {
           />
           <div className="text-sm flex flex-col gap-0 text-gray-900">
             <span className="text-gray-900 font-medium">{post.author.startsWith('flavian') ? 'Maina Gerald' : post.author}</span>
+            <div className="flex items-center gap-3">
             <span className="text-gray-800 text-xs">{formatDate(post.created_at)}</span> 
             <span className="text-red-600 text-xs">· {post.read_time}{' '}min read ·</span>
+            </div>
           </div>
         </div>
         {/* {content} */}
