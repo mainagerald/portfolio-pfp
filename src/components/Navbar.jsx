@@ -10,8 +10,14 @@ const Navbar = () => {
     const navbarRef = useRef(null);
     const lastScrollY = useRef(0);
     
-    // Simplified navigation links
+    // Check if current route has light background (add routes that have white/light backgrounds)
+    const isLightBackground = [
+        '/blog',
+    ].some(path => location.pathname.startsWith(path));
+    console.log("isLightBackground ?", isLightBackground);
+    
     const navLinks = [
+        {name: 'BLOG', path:'/blog'},
         {name: 'PROJECTS', path:'/projects'},
         {name: 'SERVICES', path:'/services'},
         {name: 'ABOUT', path:'/about'},
@@ -20,7 +26,37 @@ const Navbar = () => {
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
+        
+        // Toggle body scroll when menu is open/closed
+        if (!isMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
     };
+    
+    // Auto-close mobile menu on resize to desktop view
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth >= 768 && isMenuOpen) {
+                setIsMenuOpen(false);
+                document.body.style.overflow = 'auto';
+            }
+        };
+        
+        window.addEventListener('resize', handleResize);
+        
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [isMenuOpen]);
+    
+    // Clean up scroll lock when component unmounts
+    useEffect(() => {
+        return () => {
+            document.body.style.overflow = 'auto';
+        };
+    }, []);
     
     // Handle scroll behavior - hide on scroll down, show on scroll up
     useEffect(() => {
@@ -69,14 +105,14 @@ const Navbar = () => {
 
     return (
         <header ref={navbarRef} className='navbar' aria-label="Main navigation">
-            <div className='container'>
-                <div className='navbar-content'>
+            <div className={`container ${isMenuOpen ? 'bg-black' : 'bg-transparent'}`}>
+                <div className={`navbar-content`}>
                     {/* Logo/Name Section */}
                     <div 
                         className='navbar-logo' 
                         onClick={() => navigate('/')}
                     >
-                        <Link to='/' className='logo-link'>
+                                                <Link to='/' className={`logo-link ${isLightBackground ? 'text-black' : ''}`}>
                             MG
                         </Link>
                     </div>
@@ -86,7 +122,8 @@ const Navbar = () => {
                         {navLinks.map((link) => (
                             <Link 
                                 key={link.path} 
-                                to={link.path} 
+                                to={link.path}
+                                style={isLightBackground ? { color: 'black' } : {}} 
                                 className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
                             >
                                 {link.name}
@@ -95,11 +132,12 @@ const Navbar = () => {
                     </nav>
 
                     {/* Mobile Menu Button */}
-                    <div className='navbar-menu-button'>
+                    <div className={`navbar-menu-button`}>
                         <button 
                             onClick={toggleMenu} 
                             className='menu-toggle'
                             aria-label='Toggle menu'
+                            style={isLightBackground ? { color: 'red' } : {}} 
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 {isMenuOpen ? (
@@ -115,13 +153,13 @@ const Navbar = () => {
 
             {/* Mobile Menu */}
             {isMenuOpen && (
-                <div className='mobile-menu' aria-expanded={isMenuOpen}>
-                    <div className='mobile-menu-content' role="menu">
+                <div className='mobile-menu fixed inset-0 z-50 bg-black bg-opacity-50 min-h-[100vh]' aria-expanded={isMenuOpen}>
+                    <div className='mobile-menu-content absolute right-0 top-0 h-full w-64 bg-background shadow-lg p-6 pt-20' role="menu">
                         {navLinks.map((link) => (
                             <Link 
                                 key={link.path} 
                                 to={link.path} 
-                                className={`mobile-nav-link ${location.pathname === link.path ? 'active' : ''}`}
+                                className={`mobile-nav-link block py-3 text-lg ${location.pathname === link.path ? 'active' : ''}`}
                                 onClick={toggleMenu}
                             >
                                 {link.name}
