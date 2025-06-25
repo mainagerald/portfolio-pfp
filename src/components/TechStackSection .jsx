@@ -7,24 +7,37 @@ const TechStackSection = ({ techStack }) => {
 
   useEffect(() => {
     const container = scrollRef.current;
-    const icons = container.querySelectorAll('.tech-icon');
+    if (!container) return;
 
-    // Calculate total width of icons
-    const totalWidth = Array.from(icons).reduce((sum, icon) => sum + icon.offsetWidth, 0);
+    const icons = container.querySelectorAll('.tech-icon');
+    if (icons.length === 0) return;
+
+    // Calculate total width of icons including gaps for a more accurate animation
+    const gap = parseFloat(getComputedStyle(container).gap) || 40; // Get gap from CSS, fallback to 40px (gap-10)
+    const totalWidth = Array.from(icons).reduce((sum, icon) => sum + icon.offsetWidth + gap, 0);
 
     // Duplicate icons for seamless loop
+    const originalHTML = container.innerHTML;
     container.innerHTML += container.innerHTML;
 
-    // GSAP animation
-    gsap.to(container, {
+    // GSAP animation for a smooth, constant scroll speed
+    const speed = 80; // pixels per second, adjust for desired speed
+    const duration = totalWidth / speed;
+
+    const tween = gsap.to(container, {
       x: -totalWidth,
-      duration: 30,
+      duration: duration,
       ease: 'none',
       repeat: -1, // Infinite loop
-      modifiers: {
-        x: gsap.utils.unitize((x) => parseFloat(x) % totalWidth), // Seamless loop
-      },
     });
+
+    // Cleanup function to prevent memory leaks
+    return () => {
+      tween.kill();
+      if (container) {
+        container.innerHTML = originalHTML;
+      }
+    };
   }, [techStack]);
 
   return (
