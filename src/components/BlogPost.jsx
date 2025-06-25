@@ -1,5 +1,7 @@
 import React from 'react';
 import { Calendar, Clock } from 'lucide-react';
+import { marked } from 'marked';
+import DOMPurify from 'dompurify';
 
 const formatDate = (dateString) => {
   const date = new Date(dateString);
@@ -9,8 +11,14 @@ const formatDate = (dateString) => {
     day: 'numeric',
   });
 };
+
 export default function BlogPost({ post }) {
   if (!post) return null;
+
+  const getSanitizedHtml = (htmlContent) => {
+    const dirtyHtml = marked(htmlContent);
+    return { __html: DOMPurify.sanitize(dirtyHtml) };
+  };
   
   return (
     <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -53,7 +61,7 @@ export default function BlogPost({ post }) {
       {/* Article content */}
       <div 
         className="prose prose-lg max-w-none text-black"
-        dangerouslySetInnerHTML={{ __html: post.content }}
+        dangerouslySetInnerHTML={getSanitizedHtml(post.content)}
       />
       
       {/* Tags */}
