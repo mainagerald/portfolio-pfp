@@ -1,13 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import "../components/Layout/responsive.css";
 import { GiSkills } from "react-icons/gi";
 import { SiTechcrunch, SiGithub } from "react-icons/si";
 import {
-  MdEditNote,
-  MdHandyman,
   MdRocketLaunch,
   MdSecurity,
   MdArchitecture,
@@ -19,7 +17,7 @@ import {
   FaDocker,
   FaUniversalAccess,
 } from "react-icons/fa";
-import { BiTestTube } from "react-icons/bi";
+import { BiPlay, BiTestTube } from "react-icons/bi";
 import { BsRobot } from "react-icons/bs";
 import { AiFillApi } from "react-icons/ai";
 
@@ -39,17 +37,13 @@ import reactjs from "../assets/reactjs.svg";
 import spring from "../assets/spring.svg";
 import typescript from "../assets/typescript.svg";
 
-import { HiPaintBrush } from "react-icons/hi2";
-import { BsUmbrella } from "react-icons/bs";
 import ProjectPanels from "../components/ProjectPanels/ProjectPanels";
-import ServiceCards from "../components/ServiceCards/ServiceCards";
 import TechStackSection from "../components/TechStackSection ";
 import ViewMore from "../components/ViewMore";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
-  const navigate = useNavigate();
   const aboutRef = useRef(null);
   const contentRefs = useRef([]);
   const [loadedImages, setLoadedImages] = useState({});
@@ -146,6 +140,16 @@ const Home = () => {
       image:
         "https://images.pexels.com/photos/18069694/pexels-photo-18069694.png",
     },
+    {
+      title: "Jack With Play",
+      description:
+        "Bringing fun to the table",
+      icon: <BiPlay size={32} className="text-accent-primary" />,
+      size: "small",
+      color: "bg-gradient-to-br from-violet-500/10 to-purple-500/10",
+      image:
+        "https://images.unsplash.com/photo-1536301910723-17920a960bc7?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHNpbGx5fGVufDB8fDB8fHww",
+    },
   ];
 
   const techStack = [
@@ -209,8 +213,9 @@ const Home = () => {
     }, observerOptions);
 
     // Observe all image containers
-    Object.keys(imageRefs.current).forEach(id => {
-      const el = imageRefs.current[id];
+    const refs = imageRefs.current;
+    Object.keys(refs).forEach(id => {
+      const el = refs[id];
       if (el) {
         imageObserver.observe(el);
       }
@@ -218,14 +223,14 @@ const Home = () => {
 
     return () => {
       // Cleanup observer
-      Object.keys(imageRefs.current).forEach(id => {
-        const el = imageRefs.current[id];
+      Object.keys(refs).forEach(id => {
+        const el = refs[id];
         if (el) {
           imageObserver.unobserve(el);
         }
       });
     };
-  }, [loadedImages]);
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -353,7 +358,7 @@ const Home = () => {
         </div>
       </section>
       <section className="p-4">
-        <div className="text-center text-amber-500 text-4xl sm:text-5xl md:text-7xl font-bold font-sans mt-6 sm:mt-8 md:mt-10 mb-4 sm:mb-6 md:mb-8">
+        <div className="text-center text-[#FF5F1F] text-4xl sm:text-5xl md:text-7xl font-bold font-sans mt-6 sm:mt-8 md:mt-10 mb-4 sm:mb-6 md:mb-8">
           Selected Works
         </div>
         <ProjectPanels />
@@ -370,57 +375,40 @@ const Home = () => {
             Expertise across the full software development lifecycle
           </p>
 
-          <div className="bento-grid grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          <div className="bento-grid grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
             {skillsAndServices.map((item) => {
-              // Determine grid span based on size
+              // Responsive grid classes
               const sizeClasses = {
-                small: "col-span-1 row-span-1",
-                medium: "col-span-1 md:col-span-2 row-span-1",
-                large: "col-span-2 md:col-span-2 row-span-1 md:row-span-2",
+                small: "md:col-span-1 row-span-1",
+                medium: "md:col-span-2 row-span-1",
+                large: "md:col-span-2 md:row-span-2",
               };
 
               return (
                 <div
                   key={item.title}
-                  className={`bento-card ${sizeClasses[item.size]} ${
-                    item.color
-                  } rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm flex flex-col justify-between relative`}
-                  style={{
-                    backgroundImage: loadedImages[item.title] ? `url(${item.image})` : 'none',
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                  ref={el => imageRefs.current[item.title] = el}
+                  ref={(el) => (imageRefs.current[item.title] = el)}
                   data-id={item.title}
+                  className={`bento-card ${sizeClasses[item.size]} ${item.color} rounded-2xl overflow-hidden border border-gray-200/10 shadow-sm hover:shadow-lg transition-all duration-300 backdrop-blur-sm relative`}
                 >
-                  <div className="relative z-10 p-6 flex flex-col h-full">
-                    <div className="flex justify-between items-start mb-4">
-                      <div className="p-3 rounded-full bg-white/50 backdrop-blur-sm shadow-sm">
-                        {item.icon}
-                      </div>
-                      {item.size === "large" && (
-                        <span className="text-xs font-medium py-1 px-3 rounded-full bg-blue-500/50 backdrop-blur-sm text-gray-100">
-                          Core expertise
-                        </span>
-                      )}
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-opacity duration-500"
+                    style={{
+                      backgroundImage: loadedImages[item.title]
+                        ? `url(${item.image})`
+                        : 'none',
+                      opacity: loadedImages[item.title] ? 1 : 0,
+                    }}
+                  />
+                  <div className="relative z-10 flex flex-col justify-between h-full p-4 sm:p-5 md:p-6">
+                    <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm p-2 rounded-full">
+                      {item.icon}
                     </div>
-
                     <div className="mt-auto">
-                      <h4
-                        className="text-xl md:text-2xl font-bold text-gray-800 mb-2 px-2 py-1 rounded-xl inline-block"
-                        style={{
-                          backgroundColor: "rgba(235, 229, 229, 0.75)",
-                          backdropFilter: "blur(8px)",
-                        }}
-                      >
+                      <h3 className="text-lg sm:text-xl font-bold text-white" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.4)' }}>
                         {item.title}
-                      </h4>
-                      <p
-                        className="text-gray-50 text-sm md:text-base px-1 py-0.5 bg-black/50 rounded-xl"
-                        style={{
-                          backdropFilter: "blur(8px)",
-                        }}
-                      >
+                      </h3>
+                      <p className="text-white/90 text-sm mt-1 bg-[#FF7518]/40 backdrop-blur-sm rounded-2xl p-2" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.6)' }}>
                         {item.description}
                       </p>
                     </div>

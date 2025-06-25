@@ -2,13 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './ProjectPanels.css';
 
+
 const projectsData = [
   {
     id: 'volt-inc',
     name: 'Volt Inc',
     description: 'Building for sustainable movement in East Africa.',
     stack: 'Django, React, PostgreSQL, Docker, Flutter',
-    image: 'https://images.pexels.com/photos/385997/pexels-photo-385997.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: 'https://images.pexels.com/photos/21014/pexels-photo.jpg',
     industry: 'Logistics',
   },
   {
@@ -16,7 +17,7 @@ const projectsData = [
     name: 'Masqani',
     description: 'Integrated property and payments management with Daraja API.',
     stack: 'Spring Boot, React, MySQL, Daraja API, Flutter',
-    image: 'https://images.pexels.com/photos/333837/pexels-photo-333837.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: 'https://images.pexels.com/photos/101808/pexels-photo-101808.jpeg',
     industry: 'Real Estate / FinTech',
   },
   {
@@ -24,7 +25,7 @@ const projectsData = [
     name: 'Tradez',
     description: 'Stocks news and performance tracking with real-time insights.',
     stack: 'Django, React, Finnhub API, Celery, Redis',
-    image: 'https://images.pexels.com/photos/159888/pexels-photo-159888.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dHJhZGV8ZW58MHx8MHx8fDA%3D',
     industry: 'Finance',
   },
   // Add more projects if needed, component will take the first 3
@@ -57,7 +58,7 @@ const ProjectPanels = () => {
                 <p className="text-white/90 text-sm md:text-base mb-4 line-clamp-2">
                   {displayedProjects[0].description}
                 </p>
-                <span className="inline-block text-amber-400 font-semibold text-sm md:text-base group-hover:underline">
+                <span className="inline-block text-[#FF7518] font-semibold text-sm md:text-base group-hover:underline">
                   View Project &rarr;
                 </span>
               </div>
@@ -86,7 +87,7 @@ const ProjectPanels = () => {
                   <p className="text-white/90 text-xs md:text-sm mb-2 line-clamp-2">
                     {displayedProjects[1].description}
                   </p>
-                  <span className="inline-block text-amber-400 font-semibold text-xs md:text-sm group-hover:underline">
+                  <span className="inline-block text-[#FF7518] font-semibold text-xs md:text-sm group-hover:underline">
                     View Project &rarr;
                   </span>
                 </div>
@@ -113,7 +114,7 @@ const ProjectPanels = () => {
                   <p className="text-white/90 text-xs md:text-sm mb-2 line-clamp-2">
                     {displayedProjects[2].description}
                   </p>
-                  <span className="inline-block text-amber-400 font-semibold text-xs md:text-sm group-hover:underline">
+                  <span className="inline-block text-[#FF7518] font-semibold text-xs md:text-sm group-hover:underline">
                     View Project &rarr;
                   </span>
                 </div>

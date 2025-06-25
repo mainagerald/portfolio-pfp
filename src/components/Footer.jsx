@@ -54,10 +54,10 @@ const Footer = () => {
           {/* Contact Section */}
           <div className="flex flex-col items-center sm:items-start">
             <a
-              href="mailto:mainagerald910@gmail.com"
+              href="mailto:mainagerald1@outlook.com"
               className="mb-4 text-base hover:text-gray-300 transition-colors duration-300"
             >
-              mainagerald910@gmail.com
+              mainagerald1@outlook.com
             </a>
             <div className="flex space-x-4">
               {socialLinks.map((social) => (

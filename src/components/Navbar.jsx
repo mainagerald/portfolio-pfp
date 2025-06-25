@@ -17,9 +17,9 @@ const Navbar = () => {
     console.log("isLightBackground ?", isLightBackground);
     
     const navLinks = [
+        {name: 'BLOG', path:'/blog'},
         {name: 'PROJECTS', path:'/projects'},
         {name: 'SERVICES', path:'/services'},
-        {name: 'BLOG', path:'/blog'},
         {name: 'ABOUT', path:'/about'},
         {name: 'CONNECT', path:'/contact'}
     ];

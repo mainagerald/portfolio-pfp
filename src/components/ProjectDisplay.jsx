@@ -1,9 +1,6 @@
 import { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowUpRight, ArrowUpRightSquare, ExternalLink, Github } from 'lucide-react';
-import { FaArrowRight } from 'react-icons/fa';
+import { ExternalLink, Github } from 'lucide-react';
 import { FaArrowUpRightFromSquare } from 'react-icons/fa6';
-import { GiPadlock } from 'react-icons/gi';
 import { HiLockClosed } from 'react-icons/hi2';
 import './Layout/responsive.css';
 
@@ -95,7 +92,7 @@ export default function ProjectDisplay({ projects }) {
                             <ExternalLink size={16} className="ml-1" />
                           </a>
                         ) : (
-                          <span className="text-gray-500">Not available</span>
+                          <span className="text-gray-500">Coming Soon</span>
                         )}
                       </p>
                     </div>
@@ -147,7 +144,6 @@ export default function ProjectDisplay({ projects }) {
                         >
                           <Github size={18} className="mr-2" />
                           <HiLockClosed/>
-                          <FaArrowUpRightFromSquare className='ml-2'/>
                         </a>
                       </div>
                     )}
