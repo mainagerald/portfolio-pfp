@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import { FaDocker, FaAws, FaJava, FaReact, FaPython } from 'react-icons/fa';
-import { SiKubernetes, SiAmazon, SiSpring, SiDjango } from 'react-icons/si';
+import { FaDocker, FaAws, FaReact } from 'react-icons/fa';
+import { SiSpring, SiDjango } from 'react-icons/si';
 import { SiJenkins } from '@icons-pack/react-simple-icons';
 import { BsCloudCheck } from 'react-icons/bs';
 import { GiServerRack } from 'react-icons/gi';
@@ -8,7 +8,7 @@ import { HiCode, HiLightningBolt } from 'react-icons/hi';
 import { MdAutoFixHigh, MdSecurity, MdIntegrationInstructions } from 'react-icons/md';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import '../components/Layout/responsive.css';
+import '../../components/layout/responsive.css';
 
 // Register ScrollTrigger with GSAP
 gsap.registerPlugin(ScrollTrigger);
@@ -39,7 +39,7 @@ const Services = () => {
     gsap.set([...sectionRefs.current, ...cardRefs.current, ...principleCardRefs.current].filter(el => el), { autoAlpha: 0 });
     
     // Use a single master timeline for better performance
-    const masterTimeline = gsap.timeline();
+    // const masterTimeline = gsap.timeline();
     
     // Batch animations by section type for better performance
     // 1. Main sections animation (batched)
@@ -468,7 +468,7 @@ const Services = () => {
           
           {/* New mobile-friendly card layout - only shown on smaller screens */}
           <div className="md:hidden space-y-4 mb-16">
-            {Object.entries(softwareEngineeringPrinciples).map(([key, value], index) => (
+            {Object.entries(softwareEngineeringPrinciples).map(([key, value]) => (
               <div
                 key={`mobile-${key}`}
                 className="bg-gradient-to-r from-amber-500/10 to-violet-500/10 backdrop-blur-sm p-5 rounded-lg border border-amber-400/30 transition-all duration-300 shadow-lg shadow-amber-500/5"

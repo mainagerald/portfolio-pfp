@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import '../components/Layout/responsive.css';
+import '../../components/layout/responsive.css';
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -80,7 +80,7 @@ const About = () => {
 
       const gridSize = 110; // Increased grid cell size in pixels
       const width = window.innerWidth;
-      const height = window.innerHeight * 3; // Make it taller for scrolling
+      // const height = window.innerHeight * 3; // Make it taller for scrolling
 
       // Create vertical lines with glow animation
       for (let x = 0; x < width; x += gridSize) {
@@ -164,7 +164,7 @@ const About = () => {
       }
 
       // Animate each section
-      sectionsRef.current.forEach((section, index) => {
+      sectionsRef.current.forEach((section) => {
         // Only proceed if section exists
         if (!section) return;
         

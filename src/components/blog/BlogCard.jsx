@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import formatDate from '../utils/FormatDate';
+import formatDate from '../../utils/FormatDate';
 
 // BlogCard component for displaying blog post previews in a list
 export default function BlogCard({ post }) {

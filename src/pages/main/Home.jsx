@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import "../components/Layout/responsive.css";
+import "../../components/layout/responsive.css";
 import { GiSkills } from "react-icons/gi";
 import { SiTechcrunch, SiGithub } from "react-icons/si";
 import {
@@ -21,25 +21,25 @@ import { BiPlay, BiTestTube } from "react-icons/bi";
 import { BsRobot } from "react-icons/bs";
 import { AiFillApi } from "react-icons/ai";
 
-import aws from "../assets/aws.svg";
-import django from "../assets/django.svg";
-import docker from "../assets/docker.svg";
-import git from "../assets/git.svg";
-import go from "../assets/go.svg";
-import grafana from "../assets/grafana.svg";
-import java from "../assets/java.svg";
-import javascript from "../assets/javascript.svg";
-import mssql from "../assets/mssql.svg";
-import mysql from "../assets/mysql.svg";
-import prometheus from "../assets/prometheus.svg";
-import python from "../assets/python.svg";
-import reactjs from "../assets/reactjs.svg";
-import spring from "../assets/spring.svg";
-import typescript from "../assets/typescript.svg";
+import aws from "../../assets/aws.svg";
+import django from "../../assets/django.svg";
+import docker from "../../assets/docker.svg";
+import git from "../../assets/git.svg";
+import go from "../../assets/go.svg";
+import grafana from "../../assets/grafana.svg";
+import java from "../../assets/java.svg";
+import javascript from "../../assets/javascript.svg";
+import mssql from "../../assets/mssql.svg";
+import mysql from "../../assets/mysql.svg";
+import prometheus from "../../assets/prometheus.svg";
+import python from "../../assets/python.svg";
+import reactjs from "../../assets/reactjs.svg";
+import spring from "../../assets/spring.svg";
+import typescript from "../../assets/typescript.svg";
 
-import ProjectPanels from "../components/ProjectPanels/ProjectPanels";
-import TechStackSection from "../components/TechStackSection ";
-import ViewMore from "../components/ViewMore";
+import ProjectPanels from "../../components/projectPanels/ProjectPanels";
+import TechStackSection from "../../components/home/TechStackSection ";
+import ViewMore from "../../components/projectPanels/ViewMore";
 
 gsap.registerPlugin(ScrollTrigger);
 

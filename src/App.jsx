@@ -2,19 +2,19 @@ import './App.css'
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import { lazy, Suspense, useEffect } from 'react'
 import { QueryClientProvider } from 'react-query'
-import Layout from './components/Layout/Layout'
-import ScrollToTop from './components/ScrollToTop'
-import Spinner from './components/Spinner'
+import Layout from './components/layout/Layout'
+import ScrollToTop from './components/util/ScrollToTop'
+import Spinner from './components/util/Spinner'
 import { LoadingProvider, useLoading } from './context/LoadingContext'
 import { AuthProvider } from './context/AuthContext'
 import { queryClient } from './lib/queryClient'
 
-const Home = lazy(() => import('./pages/Home'));
-const About = lazy(() => import('./pages/About'))
-const Contact = lazy(() => import('./pages/Contact'))
-const Projects = lazy(() => import('./pages/Projects'))
-const Services = lazy(() => import('./pages/Services'))
-const Blog = lazy(() => import('./pages/Blog'))
+const Home = lazy(() => import('./pages/main/Home'));
+const About = lazy(() => import('./pages/main/About'))
+const Contact = lazy(() => import('./pages/main/contact/Contact'))
+const Projects = lazy(() => import('./pages/main/Projects'))
+const Services = lazy(() => import('./pages/main/Services'))
+const Blog = lazy(() => import('./pages/main/Blog'))
 const NotFound = lazy(() => import('./pages/error/notFound'));
 // Admin pages
 const Login = lazy(() => import('./pages/admin/Login'))
