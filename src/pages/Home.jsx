@@ -58,7 +58,7 @@ const Home = () => {
       size: "medium",
       color: "bg-gradient-to-br from-blue-500/10 to-purple-500/10",
       image:
-        "https://images.unsplash.com/photo-1699040309386-11c615ed64d5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHVpfGVufDB8fDB8fHww",
+        "https://images.unsplash.com/photo-1699040309386-11c615ed64d5?w=800&auto=format&fit=crop",
     },
     {
       title: "API Development",
@@ -68,7 +68,7 @@ const Home = () => {
       size: "large",
       color: "bg-gradient-to-br from-green-500/10 to-teal-500/10",
       image:
-        "https://images.unsplash.com/photo-1658204191944-374e8115a2de?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8YXBpfGVufDB8fDB8fHww",
+        "https://images.unsplash.com/photo-1658204191944-374e8115a2de?w=800&auto=format&fit=crop",
     },
     {
       title: "DevOps",
@@ -78,7 +78,7 @@ const Home = () => {
       size: "medium",
       color: "bg-gradient-to-br from-blue-600/10 to-cyan-500/10",
       image:
-        "https://images.unsplash.com/photo-1667984390538-3dea7a3fe33d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2xvdWQlMjBjb21wdXRlcnxlbnwwfHwwfHx8MA%3D%3D",
+        "https://images.unsplash.com/photo-1667984390538-3dea7a3fe33d?w=800&auto=format&fit=crop",
     },
     {
       title: "Architecture",
@@ -88,7 +88,7 @@ const Home = () => {
       size: "large",
       color: "bg-gradient-to-br from-amber-500/10 to-orange-500/10",
       image:
-        "https://images.pexels.com/photos/17485633/pexels-photo-17485633.png",
+        "https://images.pexels.com/photos/17485633/pexels-photo-17485633.png?w=800&h=800&auto=format&fit=crop",
     },
     {
       title: "Platform Engineering",
@@ -98,7 +98,7 @@ const Home = () => {
       size: "medium",
       color: "bg-gradient-to-br from-indigo-500/10 to-purple-600/10",
       image:
-        "https://images.unsplash.com/photo-1580584126903-c17d41830450?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTJ8fHNvZnR3YXJlfGVufDB8fDB8fHww",
+        "https://images.unsplash.com/photo-1580584126903-c17d41830450?w=800&auto=format&fit=crop",
     },
     {
       title: "LLM Applications",
@@ -108,7 +108,7 @@ const Home = () => {
       size: "medium",
       color: "bg-gradient-to-br from-pink-500/10 to-rose-500/10",
       image:
-        "https://images.unsplash.com/photo-1645839057098-5ea8761a6b09?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bGxtfGVufDB8fDB8fHww",
+        "https://images.unsplash.com/photo-1645839057098-5ea8761a6b09?w=800&auto=format&fit=crop",
     },
     {
       title: "Security",
@@ -118,7 +118,7 @@ const Home = () => {
       size: "small",
       color: "bg-gradient-to-br from-red-500/10 to-orange-600/10",
       image:
-        "https://images.unsplash.com/photo-1618482914248-29272d021005?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y3liZXIlMjBzZWN1cml0eXxlbnwwfHwwfHx8MA%3D%3D",
+        "https://images.unsplash.com/photo-1618482914248-29272d021005?w=400&auto=format&fit=crop",
     },
     {
       title: "WCAG",
@@ -128,7 +128,7 @@ const Home = () => {
       size: "small",
       color: "bg-gradient-to-br from-green-600/10 to-emerald-500/10",
       image:
-        "https://images.unsplash.com/photo-1523998956902-6d4f549de43d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWNjZXNzaWJpbGl0eXxlbnwwfHwwfHx8MA%3D%3D",
+        "https://images.unsplash.com/photo-1523998956902-6d4f549de43d?w=400&auto=format&fit=crop",
     },
     {
       title: "Testing",
@@ -138,7 +138,7 @@ const Home = () => {
       size: "small",
       color: "bg-gradient-to-br from-violet-500/10 to-purple-500/10",
       image:
-        "https://images.pexels.com/photos/18069694/pexels-photo-18069694.png",
+        "https://images.pexels.com/photos/18069694/pexels-photo-18069694.png?w=400&h=400&auto=format&fit=crop",
     },
     {
       title: "Jack With Play",
@@ -148,7 +148,7 @@ const Home = () => {
       size: "small",
       color: "bg-gradient-to-br from-violet-500/10 to-purple-500/10",
       image:
-        "https://images.unsplash.com/photo-1536301910723-17920a960bc7?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHNpbGx5fGVufDB8fDB8fHww",
+        "https://images.unsplash.com/photo-1536301910723-17920a960bc7?w=400&auto=format&fit=crop",
     },
   ];
 
@@ -384,6 +384,13 @@ const Home = () => {
                 large: "md:col-span-2 md:row-span-2",
               };
 
+              // Explicit dimensions to prevent layout shift
+              const sizeDimensions = {
+                small: { width: 400, height: 400 },
+                medium: { width: 800, height: 400 },
+                large: { width: 800, height: 800 },
+              };
+
               return (
                 <div
                   key={item.title}
@@ -391,14 +398,14 @@ const Home = () => {
                   data-id={item.title}
                   className={`bento-card ${sizeClasses[item.size]} ${item.color} rounded-2xl overflow-hidden border border-gray-200/10 shadow-sm hover:shadow-lg transition-all duration-300 backdrop-blur-sm relative`}
                 >
-                  <div
-                    className="absolute inset-0 bg-cover bg-center transition-opacity duration-500"
-                    style={{
-                      backgroundImage: loadedImages[item.title]
-                        ? `url(${item.image})`
-                        : 'none',
-                      opacity: loadedImages[item.title] ? 1 : 0,
-                    }}
+                  <img
+                    src={loadedImages[item.title] ? item.image : ''}
+                    alt={item.title}
+                    width={sizeDimensions[item.size].width}
+                    height={sizeDimensions[item.size].height}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
+                    style={{ opacity: loadedImages[item.title] ? 1 : 0 }}
                   />
                   <div className="relative z-10 flex flex-col justify-between h-full p-4 sm:p-5 md:p-6">
                     <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm p-2 rounded-full">

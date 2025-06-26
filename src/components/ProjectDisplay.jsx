@@ -52,7 +52,10 @@ export default function ProjectDisplay({ projects }) {
               style={{ scrollSnapAlign: 'start' }}
             >
               {/* Left Side - Project Image */}
-              <div className="w-full md:w-1/2 bg-gray-400 relative overflow-hidden rounded-xl project-image-container">
+              <div 
+                className="w-full md:w-1/2 bg-gray-400 relative overflow-hidden rounded-xl project-image-container"
+                style={{ background: project.gradient }}
+              >
                 <img
                   src={project.image || '/api/placeholder/800/600'}
                   alt={key}

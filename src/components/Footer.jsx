@@ -7,6 +7,7 @@ import './Layout/responsive.css';
 const Footer = () => {
   const mainLinks = [{ name: 'MAINA GERALD', path: '/' }];
   const secondaryLinks = [
+    {name: 'Blog', path: '/blog'},
     { name: 'Work', path: '/projects' },
     { name: 'Services', path: '/services' },
     { name: 'About', path: '/about' },
