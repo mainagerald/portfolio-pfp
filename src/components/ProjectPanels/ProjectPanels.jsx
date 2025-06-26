@@ -11,6 +11,7 @@ const projectsData = [
     stack: 'Django, React, PostgreSQL, Docker, Flutter',
     image: 'https://images.pexels.com/photos/21014/pexels-photo.jpg',
     industry: 'Logistics',
+    gradient: 'linear-gradient(to bottom right, #4a4035, #2d2d2d)',
   },
   {
     id: 'masqani',
@@ -19,6 +20,7 @@ const projectsData = [
     stack: 'Spring Boot, React, MySQL, Daraja API, Flutter',
     image: 'https://images.pexels.com/photos/101808/pexels-photo-101808.jpeg',
     industry: 'Real Estate / FinTech',
+    gradient: 'linear-gradient(to bottom right, #6b7f62, #3a3a30)',
   },
   {
     id: 'tradez',
@@ -27,6 +29,7 @@ const projectsData = [
     stack: 'Django, React, Finnhub API, Celery, Redis',
     image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dHJhZGV8ZW58MHx8MHx8fDA%3D',
     industry: 'Finance',
+    gradient: 'linear-gradient(to bottom right, #1a1a1a, #000000)',
   },
   // Add more projects if needed, component will take the first 3
 ];
@@ -43,6 +46,7 @@ const ProjectPanels = () => {
             to={`/projects#${displayedProjects[0].id}`}
             key={displayedProjects[0].id}
             className="col-span-12 md:col-span-8 group relative rounded-3xl overflow-hidden h-[500px] md:h-[600px] shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.01]"
+            style={{ background: displayedProjects[0].gradient }}
           >
             <img
               src={displayedProjects[0].image}
@@ -72,6 +76,7 @@ const ProjectPanels = () => {
               to={`/projects#${displayedProjects[1].id}`}
               key={displayedProjects[1].id}
               className="group relative rounded-3xl overflow-hidden h-[240px] md:h-[290px] shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.01]"
+              style={{ background: displayedProjects[1].gradient }}
             >
               <img
                 src={displayedProjects[1].image}
@@ -99,6 +104,7 @@ const ProjectPanels = () => {
               to={`/projects#${displayedProjects[2].id}`}
               key={displayedProjects[2].id}
               className="group relative rounded-3xl overflow-hidden h-[240px] md:h-[290px] shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.01]"
+              style={{ background: displayedProjects[2].gradient }}
             >
               <img
                 src={displayedProjects[2].image}
