@@ -1,9 +1,9 @@
 import React, { Suspense } from 'react'
-import Navbar from '../Navbar'
+import Navbar from './Navbar'
 import { Outlet } from 'react-router-dom'
-import Footer from '../Footer'
+import Footer from './Footer'
 import './responsive.css'
-import Spinner from '../Spinner'
+import Spinner from '../util/Spinner'
 
 const Layout = () => {
   return (

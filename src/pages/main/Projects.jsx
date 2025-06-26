@@ -1,7 +1,7 @@
-import ProjectDisplay from "../components/ProjectDisplay";
-import '../components/Layout/responsive.css';
-import nai from '../assets/nai.png';
-import daca from '../assets/daca.png';
+import ProjectDisplay from "../../components/projects/ProjectDisplay";
+import '../../components/layout/responsive.css';
+import nai from '../../assets/nai.png';
+import daca from '../../assets/daca.png';
 
 
 const ProjectDetails = {

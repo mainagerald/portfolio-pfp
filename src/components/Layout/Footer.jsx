@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaLinkedin, FaGithub, FaYoutube } from 'react-icons/fa';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
-import './Layout/responsive.css';
+import './responsive.css';
 
 const Footer = () => {
   const mainLinks = [{ name: 'MAINA GERALD', path: '/' }];

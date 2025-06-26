@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 import { FaArrowUpRightFromSquare } from 'react-icons/fa6';
 import { HiLockClosed } from 'react-icons/hi2';
-import './Layout/responsive.css';
+import '../layout/responsive.css';
 
 export default function ProjectDisplay({ projects }) {
   const projectKeys = Object.keys(projects);

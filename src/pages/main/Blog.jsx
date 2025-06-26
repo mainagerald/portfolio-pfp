@@ -2,9 +2,9 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { useQuery } from 'react-query';
-import BlogPost from '../components/BlogPost';
-import BlogCard from '../components/BlogCard';
-import { getAllPosts, getPostBySlug } from '../services/blogService';
+import BlogPost from '../../components/blog/BlogPost';
+import BlogCard from '../../components/blog/BlogCard';
+import { getAllPosts, getPostBySlug } from '../../services/blogService';
 
 // Blog component that handles both list and single post views
 export default function Blog() {

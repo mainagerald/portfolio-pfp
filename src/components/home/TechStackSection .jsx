@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import './Layout/responsive.css';
+import '../layout/responsive.css';
 
 const TechStackSection = ({ techStack }) => {
   const scrollRef = useRef(null);

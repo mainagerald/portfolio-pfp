@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, useCallback } from 'react';
-import Spinner from '../components/Spinner';
+import Spinner from '../components/util/Spinner';
 
 const LoadingContext = createContext();
 
